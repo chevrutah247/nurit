@@ -5,11 +5,16 @@ export function Hero() {
     <section className="hero">
       <div className="hero-copy">
         <p className="eyebrow">Clear navigation. Warm design. Easy registration.</p>
-        <h1>A calm, modern website for women who want everything visible at a glance.</h1>
+        <h1>Everything important should be visible immediately.</h1>
         <p className="lead">
-          This first version keeps the familiar menu from the current site while
-          making every page larger, cleaner, and easier to use.
+          The new NURIT homepage is being built with one goal in mind: older
+          women should be able to read, understand, and use it without effort.
         </p>
+        <div className="hero-summary">
+          <div className="summary-chip">Large text on every screen</div>
+          <div className="summary-chip">Simple menu with no confusion</div>
+          <div className="summary-chip">Easy path to register</div>
+        </div>
         <div className="hero-actions">
           <Link href="/register" className="button button-primary">
             Register
@@ -21,13 +26,16 @@ export function Hero() {
       </div>
 
       <div className="hero-card" aria-label="Project goals">
-        <p className="hero-card-label">Project focus</p>
-        <ul>
-          <li>Large text without squinting</li>
-          <li>Simple menu with no confusing layers</li>
-          <li>Google-friendly technical structure</li>
-          <li>Fast deployment on Vercel via GitHub</li>
-        </ul>
+        <p className="hero-card-label">Next community event</p>
+        <h2 className="hero-side-title">Annual Women&apos;s Gathering</h2>
+        <div className="hero-detail-list">
+          <p><strong>Date:</strong> To be announced</p>
+          <p><strong>Location:</strong> Brooklyn, New York</p>
+          <p><strong>Focus:</strong> Inspiration, connection, and community</p>
+        </div>
+        <Link href="/annual-event" className="button button-secondary button-full-mobile">
+          View Event Details
+        </Link>
       </div>
     </section>
   );
