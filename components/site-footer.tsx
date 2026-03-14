@@ -12,7 +12,12 @@ export function SiteFooter() {
     <footer className="site-footer">
       <div className="footer-inner">
         <div className="footer-brand">
-          <Image src="/images/001.png" alt="RJ N'shei Chabad" width={40} height={40} />
+          <Image
+            src="/images/logo-001-transparent.png"
+            alt="Junior N'shei Chabad logo"
+            width={160}
+            height={54}
+          />
           <span className="footer-title">{copy.footer.title}</span>
         </div>
 
