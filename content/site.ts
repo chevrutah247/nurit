@@ -30,6 +30,24 @@ export const services = [
   'Volunteer support and outreach',
 ];
 
+export const homeHighlights = [
+  {
+    title: 'Simple registration',
+    description:
+      'A clear registration path with large fields and one visible main button.',
+  },
+  {
+    title: 'Comfortable reading',
+    description:
+      'Large type, warm contrast, and calm spacing help visitors use the site with ease.',
+  },
+  {
+    title: 'Community trust',
+    description:
+      'Clear navigation, real people, and organized information make the website feel reliable.',
+  },
+];
+
 export const galleryMoments = [
   "Annual women's gathering",
   'Holiday inspiration evenings',
