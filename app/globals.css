@@ -126,6 +126,24 @@ p, li, label, input, textarea {
   overflow: hidden;
 }
 
+.hero-logo-link {
+  position: absolute;
+  top: 16px;
+  left: 20px;
+  z-index: 8;
+  display: inline-flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: min(42vw, 360px);
+}
+
+.hero-corner-logo {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.3));
+}
+
 .hero-slides {
   position: relative;
   width: 100%;
@@ -693,6 +711,12 @@ p, li, label, input, textarea {
 }
 
 @media (max-width: 640px) {
+  .hero-logo-link {
+    top: 12px;
+    left: 12px;
+    max-width: min(62vw, 260px);
+  }
+
   .nav-link,
   .button {
     width: 100%;
