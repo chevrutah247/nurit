@@ -1,116 +1,100 @@
-import Link from "next/link";
+import Link from 'next/link';
 
-import { Hero } from "@/components/hero";
-import { galleryMoments, homeHighlights, services } from "@/content/site";
+import { HeroSlideshow } from '@/components/hero-slideshow';
 
 export default function HomePage() {
   return (
     <div className="page-stack">
-      <Hero />
+      <HeroSlideshow />
 
-      <section className="page-panel home-intro">
-        <div>
-          <p className="eyebrow">Quick Navigation</p>
-          <h2>A more organized homepage starts with fewer choices at a time.</h2>
-        </div>
-        <div className="action-grid" aria-label="Main actions">
-          <Link href="/register" className="action-card action-card-primary">
-            <span className="action-card-title">Register</span>
-            <span className="action-card-copy">Open the simple registration form</span>
-          </Link>
-          <Link href="/annual-event" className="action-card">
-            <span className="action-card-title">Annual Event</span>
-            <span className="action-card-copy">See date, details, and program information</span>
-          </Link>
-          <Link href="/donate" className="action-card">
-            <span className="action-card-title">Donate</span>
-            <span className="action-card-copy">Support the women&apos;s community programs</span>
-          </Link>
-          <Link href="/contact" className="action-card">
-            <span className="action-card-title">Contact</span>
-            <span className="action-card-copy">Call, email, or send a message</span>
-          </Link>
-        </div>
-      </section>
-
-      <section className="info-band" aria-label="Homepage highlights">
-        {homeHighlights.map((item) => (
-          <article key={item.title} className="info-band-item">
-            <h3>{item.title}</h3>
-            <p>{item.description}</p>
-          </article>
-        ))}
-      </section>
-
-      <section className="page-grid home-feature-grid">
-        <article className="page-panel">
-          <p className="eyebrow">Annual Event</p>
-          <h2>Keep the familiar navigation, but make every next step obvious.</h2>
+      {/* Welcome */}
+      <section className="welcome-section">
+        <div className="welcome-inner">
+          <h2>Welcome to Our Community</h2>
           <p>
-            Visitors should immediately understand where to click for event
-            details, registration, donations, or contact information.
+            We are a warm and close-knit community of Russian-speaking Jewish women
+            in Brooklyn. We organize gatherings, holiday celebrations, learning programs,
+            and support one another as a family.
           </p>
-          <div className="button-row">
-            <Link href="/annual-event" className="button button-primary">
-              View Event
-            </Link>
-            <Link href="/about" className="button button-secondary">
-              Learn More
-            </Link>
-          </div>
-        </article>
-
-        <article className="page-panel">
-          <p className="eyebrow">Programs</p>
-          <h2>Community programs presented in a calmer, cleaner format.</h2>
-          <ul className="structured-list">
-            {services.map((service) => (
-              <li key={service}>{service}</li>
-            ))}
-          </ul>
-        </article>
+        </div>
       </section>
 
-      <section className="page-grid">
-        <article className="page-panel">
-          <p className="eyebrow">Why This Layout Works</p>
-          <h2>The page now follows a clearer reading order.</h2>
-          <div className="structured-list">
-            <p>1. The first screen shows the two most important actions.</p>
-            <p>2. The next block shows only four large choices.</p>
-            <p>3. Information sections are grouped instead of scattered.</p>
-            <p>4. The gallery stays lower on the page as secondary content.</p>
+      {/* Quick actions — 3 large cards */}
+      <section className="actions-section">
+        <div className="actions-inner">
+          <div className="actions-grid">
+            <Link href="/register" className="action-card">
+              <div className="action-icon">&#9997;</div>
+              <h3>Register</h3>
+              <p>Join our community — simple and quick registration</p>
+            </Link>
+            <Link href="/annual-event" className="action-card">
+              <div className="action-icon">&#127881;</div>
+              <h3>Annual Event</h3>
+              <p>Our annual women&apos;s gathering — see details and program</p>
+            </Link>
+            <Link href="/donate" className="action-card">
+              <div className="action-icon">&#10084;</div>
+              <h3>Donate</h3>
+              <p>Support our community programs and events</p>
+            </Link>
           </div>
-        </article>
+        </div>
+      </section>
 
-        <article className="page-panel">
-          <p className="eyebrow">Gallery Preview</p>
-          <h2>Photos should support the page, not compete with navigation.</h2>
-          <div className="gallery-preview-list">
-            {galleryMoments.map((moment) => (
-              <div key={moment} className="gallery-preview-item">
-                <strong>{moment}</strong>
-                <span>Large images and simple captions can go here.</span>
+      {/* Programs */}
+      <section className="programs-section">
+        <div className="programs-inner">
+          <h2>Our Programs</h2>
+          <div className="programs-grid">
+            <div className="program-item">
+              <div className="program-icon">&#127867;</div>
+              <div>
+                <h3>Community Gatherings</h3>
+                <p>Regular women&apos;s farbrengens with food, talks, and togetherness</p>
               </div>
-            ))}
+            </div>
+            <div className="program-item">
+              <div className="program-icon">&#128218;</div>
+              <div>
+                <h3>Learning Programs</h3>
+                <p>Torah classes, holiday preparation, and inspirational talks</p>
+              </div>
+            </div>
+            <div className="program-item">
+              <div className="program-icon">&#127881;</div>
+              <div>
+                <h3>Annual Farbrengen</h3>
+                <p>Our biggest event of the year — a grand celebration for all women</p>
+              </div>
+            </div>
+            <div className="program-item">
+              <div className="program-icon">&#129309;</div>
+              <div>
+                <h3>Volunteer Support</h3>
+                <p>Community outreach, helping families, and supporting those in need</p>
+              </div>
+            </div>
           </div>
-        </article>
+        </div>
       </section>
 
-      <section className="page-panel home-cta">
-        <p className="eyebrow">Main Action</p>
-        <h2>If someone visits the site for the event, registration should never feel hidden.</h2>
-        <p>
-          This section keeps one strong call to action visible near the bottom of
-          the homepage as well.
-        </p>
-        <div className="button-row">
-          <Link href="/register" className="button button-primary">
-            Go to Registration
-          </Link>
-          <Link href="/contact" className="button button-secondary">
-            Ask a Question
-          </Link>
+      {/* Bottom CTA */}
+      <section className="cta-section">
+        <div className="cta-inner">
+          <h2>Join Us Today</h2>
+          <p>
+            Become part of a warm and welcoming community.
+            Registration is simple and takes just a minute.
+          </p>
+          <div className="cta-buttons">
+            <Link href="/register" className="button button-light button-large">
+              Register Now
+            </Link>
+            <Link href="/contact" className="button button-light button-large">
+              Contact Us
+            </Link>
+          </div>
         </div>
       </section>
     </div>
