@@ -7,6 +7,7 @@ const routes = [
   "/about",
   "/donate",
   "/annual-event",
+  "/team",
   "/services",
   "/gallery",
   "/contact",

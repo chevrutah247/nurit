@@ -1,4 +1,4 @@
-import type { Route } from "next";
+import type { Route } from 'next';
 
 export type NavItem = {
   href: Route;
@@ -6,51 +6,66 @@ export type NavItem = {
 };
 
 export const siteConfig = {
-  name: "NURIT",
+  name: "Russian Junior N'shei Chabad",
   organization: "Russian Junior N'shei Chabad",
-  siteUrl: "https://www.rjnsheichabad.com",
+  siteUrl: 'https://www.rjnsheichabad.com',
   description:
-    "A welcoming community website with simple navigation, large text, clear registration, and strong SEO foundations.",
+    "A warm community for Russian-speaking Jewish women. Gatherings, holiday celebrations, learning programs, and mutual support in Brooklyn, NY.",
   navigation: [
-    { href: "/", label: "Home" },
-    { href: "/donate", label: "Donate" },
-    { href: "/about", label: "About Us" },
-    { href: "/annual-event", label: "Annual Event" },
-    { href: "/services", label: "Services" },
-    { href: "/gallery", label: "Gallery" },
-    { href: "/contact", label: "Contact" },
-    { href: "/register", label: "Register" }
-  ] satisfies NavItem[]
+    { href: '/', label: 'Home' },
+    { href: '/about', label: 'About Us' },
+    { href: '/team', label: 'Team' },
+    { href: '/annual-event', label: 'Annual Event' },
+    { href: '/gallery', label: 'Gallery' },
+    { href: '/donate', label: 'Donate' },
+    { href: '/contact', label: 'Contact' },
+    { href: '/register', label: 'Register' },
+  ] satisfies NavItem[],
 };
 
-export const homeHighlights = [
-  {
-    title: "Simple registration",
-    description:
-      "The registration path is reduced to a few large fields and one clear button."
-  },
-  {
-    title: "Comfortable reading",
-    description:
-      "Large type, generous spacing, and high contrast help visitors use the site without strain."
-  },
-  {
-    title: "Ready for Google",
-    description:
-      "Structured metadata, semantic pages, and a fast Next.js setup support SEO from day one."
-  }
-];
-
 export const services = [
-  "Community gatherings and women’s events",
-  "Annual Farbrengen planning and registration",
-  "Learning programs and inspirational talks",
-  "Volunteer support and community outreach"
+  'Community gatherings and farbrengens',
+  'Annual grand celebration',
+  'Torah learning programs',
+  'Volunteer support and outreach',
 ];
 
 export const galleryMoments = [
-  "Annual women’s gathering",
-  "Holiday inspiration evenings",
-  "Community support moments",
-  "Celebrations and shared memories"
+  "Annual women's gathering",
+  'Holiday inspiration evenings',
+  'Community support moments',
+  'Celebrations and shared memories',
+];
+
+export const teamMembers = [
+  {
+    id: '001',
+    name: 'Nurit Sarycheva',
+    role: 'Head and organizer of the organization',
+    image: '/001.jpg',
+  },
+  {
+    id: '002',
+    name: 'Leya Yekhilov',
+    role: 'Team member',
+    image: '/002.jpg',
+  },
+  {
+    id: '003',
+    name: 'Malki Shkolnik',
+    role: 'Team member',
+    image: '/003.jpg',
+  },
+  {
+    id: '004',
+    name: 'Rivka Sidorov',
+    role: 'Team member',
+    image: '/004.jpg',
+  },
+  {
+    id: '005',
+    name: 'Miryam Ilyaev',
+    role: 'Team member',
+    image: '/005.jpg',
+  },
 ];
