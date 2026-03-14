@@ -4,6 +4,8 @@ import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
+import { useLanguage } from '@/components/language-provider';
+
 const slides = [
   { src: '/images/q001.jpg', alt: 'Beautifully decorated event hall' },
   { src: '/images/n002.jpg', alt: 'Five friends posing at the event' },
@@ -24,6 +26,7 @@ const slides = [
 
 export function HeroSlideshow() {
   const [current, setCurrent] = useState(0);
+  const { copy } = useLanguage();
 
   const next = useCallback(() => {
     setCurrent(c => (c + 1) % slides.length);
@@ -68,18 +71,18 @@ export function HeroSlideshow() {
         ))}
         <div className="hero-overlay">
           <div className="hero-overlay-content">
-            <h1>Russian Junior N&apos;shei Chabad</h1>
+            <h1>{copy.hero.title}</h1>
             <p className="hero-tagline">
-              A warm community for women of all ages.
+              {copy.hero.taglineLine1}
               <br />
-              Gatherings, inspiration, and connection.
+              {copy.hero.taglineLine2}
             </p>
             <div className="hero-buttons">
               <Link href="/register" className="button button-primary button-large">
-                Register
+                {copy.hero.register}
               </Link>
               <Link href="/donate" className="button button-light button-large">
-                Donate
+                {copy.hero.donate}
               </Link>
             </div>
           </div>

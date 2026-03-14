@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from 'react';
 
+import { useLanguage } from '@/components/language-provider';
+
 const hebrewMonths: Record<string, string> = {
   'Nisan': 'Nisan', 'Iyyar': 'Iyyar', 'Sivan': 'Sivan',
   'Tamuz': 'Tamuz', 'Av': 'Av', 'Elul': 'Elul',
@@ -16,6 +18,7 @@ export function ShabbatBar() {
   const [candleLighting, setCandleLighting] = useState('');
   const [havdalah, setHavdalah] = useState('');
   const [ready, setReady] = useState(false);
+  const { copy } = useLanguage();
 
   useEffect(() => {
     async function fetchInfo() {
@@ -112,17 +115,17 @@ export function ShabbatBar() {
         <>
           {hebrewDate && <span>{hebrewDate}</span>}
           {hebrewDate && parsha && <span className="shabbat-dot">&bull;</span>}
-          {parsha && <span>Parashat {parsha}</span>}
+          {parsha && <span>{copy.shabbat.parashat} {parsha}</span>}
           {candleLighting && (
             <>
               <span className="shabbat-dot">&bull;</span>
-              <span>Candle lighting: {candleLighting}</span>
+              <span>{copy.shabbat.candleLighting}: {candleLighting}</span>
             </>
           )}
           {havdalah && (
             <>
               <span className="shabbat-dot">&bull;</span>
-              <span>Havdalah: {havdalah}</span>
+              <span>{copy.shabbat.havdalah}: {havdalah}</span>
             </>
           )}
         </>

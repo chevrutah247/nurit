@@ -1,21 +1,21 @@
-import type { Metadata } from "next";
-import Link from "next/link";
+'use client';
 
-export const metadata: Metadata = {
-  title: "Thank You",
-  description: "Confirmation page after a registration is sent."
-};
+import Link from 'next/link';
+
+import { useLanguage } from '@/components/language-provider';
 
 export default function ThankYouPage() {
+  const { copy } = useLanguage();
+
   return (
     <div className="page-stack">
       <section className="page-panel">
-        <p className="eyebrow">Thank You</p>
-        <h1>Your registration has been received.</h1>
-        <p>We can customize this page later with email confirmation details.</p>
+        <p className="eyebrow">{copy.thankYou.eyebrow}</p>
+        <h1>{copy.thankYou.title}</h1>
+        <p>{copy.thankYou.text}</p>
         <div className="button-row">
           <Link href="/" className="button button-secondary">
-            Return Home
+            {copy.thankYou.returnHome}
           </Link>
         </div>
       </section>

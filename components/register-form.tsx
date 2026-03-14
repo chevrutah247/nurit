@@ -3,8 +3,11 @@
 import { FormEvent } from "react";
 import { useRouter } from "next/navigation";
 
+import { useLanguage } from "@/components/language-provider";
+
 export function RegisterForm() {
   const router = useRouter();
+  const { copy } = useLanguage();
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -14,37 +17,37 @@ export function RegisterForm() {
   return (
     <form className="register-form" onSubmit={handleSubmit}>
       <label>
-        First name
+        {copy.form.firstName}
         <input type="text" name="firstName" autoComplete="given-name" required />
       </label>
 
       <label>
-        Last name
+        {copy.form.lastName}
         <input type="text" name="lastName" autoComplete="family-name" required />
       </label>
 
       <label>
-        Phone
+        {copy.form.phone}
         <input type="tel" name="phone" autoComplete="tel" required />
       </label>
 
       <label>
-        Email
+        {copy.form.email}
         <input type="email" name="email" autoComplete="email" required />
       </label>
 
       <label>
-        Number of guests
+        {copy.form.guests}
         <input type="number" name="guests" min="0" defaultValue="0" />
       </label>
 
       <label>
-        Notes
+        {copy.form.notes}
         <textarea name="notes" rows={5} />
       </label>
 
       <button type="submit" className="button button-primary button-full">
-        Send Registration
+        {copy.form.send}
       </button>
     </form>
   );

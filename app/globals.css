@@ -64,6 +64,32 @@ p, li, label, input, textarea {
   padding: 14px 0 10px;
 }
 
+.language-switcher {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.lang-button {
+  min-width: 58px;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(255, 250, 241, 0.76);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.lang-button-active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
 .main-nav {
   display: flex;
   flex-wrap: wrap;
@@ -581,6 +607,38 @@ p, li, label, input, textarea {
   color: var(--text-soft);
 }
 
+html[dir='rtl'] body {
+  text-align: right;
+}
+
+html[dir='rtl'] .compact-header,
+html[dir='rtl'] .footer-inner,
+html[dir='rtl'] .main-nav,
+html[dir='rtl'] .button-row,
+html[dir='rtl'] .hero-buttons,
+html[dir='rtl'] .cta-buttons {
+  flex-direction: row-reverse;
+}
+
+html[dir='rtl'] .hero-logo-link {
+  left: auto;
+  right: 18px;
+}
+
+html[dir='rtl'] .hero-overlay-content {
+  margin-right: auto;
+  padding: 130px 320px 40px 60px;
+  text-align: right;
+}
+
+html[dir='rtl'] .register-form label,
+html[dir='rtl'] .team-copy,
+html[dir='rtl'] .welcome-inner,
+html[dir='rtl'] .programs-inner,
+html[dir='rtl'] .cta-inner {
+  text-align: right;
+}
+
 /* ═══ REGISTER FORM ═══ */
 .register-layout {
   display: grid;
@@ -715,6 +773,15 @@ p, li, label, input, textarea {
     top: 120px;
     left: 12px;
     max-width: min(42vw, 170px);
+  }
+
+  html[dir='rtl'] .hero-logo-link {
+    left: auto;
+    right: 12px;
+  }
+
+  html[dir='rtl'] .hero-overlay-content {
+    padding: 120px 210px 20px 20px;
   }
 
   .nav-link,

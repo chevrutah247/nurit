@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Cormorant_Garamond, Source_Sans_3 } from 'next/font/google';
 
+import { LanguageProvider } from '@/components/language-provider';
 import { SiteHeader } from '@/components/site-header';
 import { ShabbatBar } from '@/components/shabbat-bar';
 import { SiteFooter } from '@/components/site-footer';
@@ -51,11 +52,13 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://www.hebcal.com" />
         <link rel="preconnect" href="https://www.hebcal.com" />
       </head>
-      <body>
-        <SiteHeader />
-        <ShabbatBar />
-        <main>{children}</main>
-        <SiteFooter />
+      <body suppressHydrationWarning>
+        <LanguageProvider>
+          <SiteHeader />
+          <ShabbatBar />
+          <main>{children}</main>
+          <SiteFooter />
+        </LanguageProvider>
       </body>
     </html>
   );

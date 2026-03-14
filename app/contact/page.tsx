@@ -1,32 +1,25 @@
-import type { Metadata } from "next";
+'use client';
 
-export const metadata: Metadata = {
-  title: "Contact",
-  description: "Find contact information and a simple way to reach the organization."
-};
+import { useLanguage } from '@/components/language-provider';
 
 export default function ContactPage() {
+  const { copy } = useLanguage();
+
   return (
-    <div className="page-stack">
-      <section className="page-panel">
-        <p className="eyebrow">Contact</p>
-        <h1>Every contact option should be easy to notice and easy to tap.</h1>
-      </section>
+    <div className="subpage">
+      <h1>{copy.contact.title}</h1>
 
       <section className="page-grid">
         <article className="page-panel">
-          <h2>Direct contact</h2>
-          <p>Phone: (000) 000-0000</p>
-          <p>Email: hello@nurit.org</p>
-          <p>Address: Brooklyn, New York</p>
+          <h2>{copy.contact.touchTitle}</h2>
+          <p style={{ fontSize: '1.2rem' }}>Phone: (000) 000-0000</p>
+          <p style={{ fontSize: '1.2rem' }}>Email: rjnsheichabad@gmail.com</p>
+          <p style={{ fontSize: '1.2rem' }}>{copy.contact.location}</p>
         </article>
 
         <article className="page-panel">
-          <h2>Friendly next step</h2>
-          <p>
-            This section can later include a contact form, map, WhatsApp, or
-            Telegram links.
-          </p>
+          <h2>{copy.contact.visitTitle}</h2>
+          <p>{copy.contact.visitText}</p>
         </article>
       </section>
     </div>

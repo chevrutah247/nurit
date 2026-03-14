@@ -1,15 +1,21 @@
-import Link from "next/link";
+'use client';
+
+import Link from 'next/link';
+
+import { useLanguage } from '@/components/language-provider';
 
 export default function NotFound() {
+  const { copy } = useLanguage();
+
   return (
     <div className="page-stack">
       <section className="page-panel">
-        <p className="eyebrow">Page Not Found</p>
-        <h1>This page could not be found.</h1>
-        <p>The main navigation is always available to help visitors return easily.</p>
+        <p className="eyebrow">{copy.notFound.eyebrow}</p>
+        <h1>{copy.notFound.title}</h1>
+        <p>{copy.notFound.text}</p>
         <div className="button-row">
           <Link href="/" className="button button-primary">
-            Go to Home
+            {copy.nav.home}
           </Link>
         </div>
       </section>

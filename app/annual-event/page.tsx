@@ -1,37 +1,37 @@
-import type { Metadata } from "next";
-import Link from "next/link";
+'use client';
 
-export const metadata: Metadata = {
-  title: "Annual Event",
-  description: "See event details, schedule highlights, and a clear registration path."
-};
+import Link from 'next/link';
+
+import { useLanguage } from '@/components/language-provider';
 
 export default function AnnualEventPage() {
+  const { copy } = useLanguage();
+
   return (
-    <div className="page-stack">
-      <section className="page-panel">
-        <p className="eyebrow">Annual Event</p>
-        <h1>The yearly event page should feel calm, special, and very easy to use.</h1>
-        <p>
-          This page is structured for date, time, location, schedule details, and
-          frequently asked questions.
-        </p>
+    <div className="subpage">
+      <h1>{copy.annual.title}</h1>
+
+      <section className="page-panel" style={{ marginBottom: 24 }}>
+        <h2>{copy.annual.detailsTitle}</h2>
+        <p style={{ fontSize: '1.2rem' }}><strong>{copy.annual.date}:</strong> {copy.annual.dateValue}</p>
+        <p style={{ fontSize: '1.2rem' }}><strong>{copy.annual.location}:</strong> {copy.annual.locationValue}</p>
+        <p style={{ fontSize: '1.2rem' }}><strong>{copy.annual.focus}:</strong> {copy.annual.focusValue}</p>
         <div className="button-row">
-          <Link href="/register" className="button button-primary">
-            Register Now
+          <Link href="/register" className="button button-primary button-large">
+            {copy.annual.register}
           </Link>
         </div>
       </section>
 
       <section className="page-grid">
         <article className="page-panel">
-          <h2>Information block</h2>
-          <p>Date, address, special guests, and key program details appear here.</p>
+          <h2>{copy.annual.expectTitle}</h2>
+          <p>{copy.annual.expectText}</p>
         </article>
 
         <article className="page-panel">
-          <h2>FAQ block</h2>
-          <p>Important practical answers can be shown here in a larger, readable format.</p>
+          <h2>{copy.annual.questionsTitle}</h2>
+          <p>{copy.annual.questionsText}</p>
         </article>
       </section>
     </div>

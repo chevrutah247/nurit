@@ -1,37 +1,27 @@
-import type { Metadata } from "next";
+'use client';
 
-export const metadata: Metadata = {
-  title: "About Us",
-  description: "Learn about the mission, history, and community role of NURIT."
-};
+import { useLanguage } from '@/components/language-provider';
 
 export default function AboutPage() {
+  const { copy } = useLanguage();
+
   return (
-    <div className="page-stack">
-      <section className="page-panel">
-        <p className="eyebrow">About Us</p>
-        <h1>A trusted women’s community presented with warmth and clarity.</h1>
-        <p>
-          This page is designed for the organization story, mission, and history.
-          It should build trust quickly and remain easy to read for every age.
-        </p>
+    <div className="subpage">
+      <h1>{copy.about.title}</h1>
+      <section className="page-panel" style={{ marginBottom: 24 }}>
+        <h2>{copy.about.missionTitle}</h2>
+        <p>{copy.about.missionText}</p>
       </section>
 
       <section className="page-grid">
         <article className="page-panel">
-          <h2>Mission</h2>
-          <p>
-            Support, inspire, and connect women through meaningful events,
-            education, and community care.
-          </p>
+          <h2>{copy.about.whatWeDoTitle}</h2>
+          <p>{copy.about.whatWeDoText}</p>
         </article>
 
         <article className="page-panel">
-          <h2>Why this format works</h2>
-          <p>
-            The new layout removes clutter, enlarges the content, and keeps every
-            important action visible.
-          </p>
+          <h2>{copy.about.whoWeServeTitle}</h2>
+          <p>{copy.about.whoWeServeText}</p>
         </article>
       </section>
     </div>

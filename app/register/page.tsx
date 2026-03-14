@@ -1,33 +1,30 @@
-import type { Metadata } from "next";
+'use client';
 
-import { RegisterForm } from "@/components/register-form";
-
-export const metadata: Metadata = {
-  title: "Register",
-  description: "Register quickly with large fields, simple wording, and a clear submit path."
-};
+import { useLanguage } from '@/components/language-provider';
+import { RegisterForm } from '@/components/register-form';
 
 export default function RegisterPage() {
-  return (
-    <div className="register-layout">
-      <section className="register-panel">
-        <p className="eyebrow">Register</p>
-        <h1>A large, simple form that feels comfortable even for first-time users.</h1>
-        <p>
-          Only the most important fields appear first. The goal is to make
-          registration feel calm and obvious.
-        </p>
-        <ul>
-          <li>Large input fields</li>
-          <li>Minimal required information</li>
-          <li>One main button at the end</li>
-          <li>Clear thank-you page after submission</li>
-        </ul>
-      </section>
+  const { copy } = useLanguage();
 
-      <section className="register-panel">
-        <RegisterForm />
-      </section>
+  return (
+    <div className="subpage">
+      <h1>{copy.register.title}</h1>
+
+      <div className="register-layout">
+        <section className="page-panel">
+          <h2>{copy.register.panelTitle}</h2>
+          <p>{copy.register.text}</p>
+          <ul style={{ lineHeight: 2 }}>
+            {copy.register.benefits.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </section>
+
+        <section className="page-panel">
+          <RegisterForm />
+        </section>
+      </div>
     </div>
   );
 }

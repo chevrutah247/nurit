@@ -59,31 +59,31 @@ export const teamMembers = [
   {
     id: '001',
     name: 'Nurit Sarycheva',
-    role: 'Head and organizer of the organization',
+    roleKey: 'lead',
     image: '/001.jpg',
   },
   {
     id: '002',
     name: 'Leya Yekhilov',
-    role: 'Team member',
+    roleKey: 'member',
     image: '/002.jpg',
   },
   {
     id: '003',
     name: 'Malki Shkolnik',
-    role: 'Team member',
+    roleKey: 'member',
     image: '/003.jpg',
   },
   {
     id: '004',
     name: 'Rivka Sidorov',
-    role: 'Team member',
+    roleKey: 'member',
     image: '/004.jpg',
   },
   {
     id: '005',
     name: 'Miryam Ilyaev',
-    role: 'Team member',
+    roleKey: 'member',
     image: '/005.jpg',
   },
 ];

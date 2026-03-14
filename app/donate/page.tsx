@@ -1,29 +1,25 @@
-import type { Metadata } from "next";
+'use client';
 
-export const metadata: Metadata = {
-  title: "Donate",
-  description: "Support women’s programs and annual events with a simple donation page."
-};
+import { useLanguage } from '@/components/language-provider';
 
 export default function DonatePage() {
+  const { copy } = useLanguage();
+
   return (
-    <div className="page-stack">
+    <div className="subpage">
+      <h1>{copy.donate.title}</h1>
       <section className="page-panel">
-        <p className="eyebrow">Donate</p>
-        <h1>Give support in a way that feels simple and trustworthy.</h1>
-        <p>
-          This page will later connect to the real payment provider. For now it
-          shows the structure: clear purpose, visible amounts, and no confusion.
-        </p>
+        <h2>{copy.donate.panelTitle}</h2>
+        <p>{copy.donate.text}</p>
         <div className="button-row">
-          <a href="#" className="button button-primary">
-            Donate $36
+          <a href="#" className="button button-primary button-large">
+            {copy.donate.amount36}
           </a>
-          <a href="#" className="button button-secondary">
-            Donate $72
+          <a href="#" className="button button-secondary button-large">
+            {copy.donate.amount72}
           </a>
-          <a href="#" className="button button-secondary">
-            Donate $180
+          <a href="#" className="button button-gold button-large">
+            {copy.donate.amount180}
           </a>
         </div>
       </section>

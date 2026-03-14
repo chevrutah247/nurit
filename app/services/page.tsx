@@ -1,31 +1,35 @@
-import type { Metadata } from "next";
+'use client';
 
-import { services } from "@/content/site";
-
-export const metadata: Metadata = {
-  title: "Services",
-  description: "Browse the organization’s programs, gatherings, and community support."
-};
+import { useLanguage } from '@/components/language-provider';
 
 export default function ServicesPage() {
-  return (
-    <div className="page-stack">
-      <section className="page-panel">
-        <p className="eyebrow">Services</p>
-        <h1>Programs should be visible immediately, with no hidden navigation.</h1>
-      </section>
+  const { copy } = useLanguage();
 
-      <section className="grid-three">
-        {services.map((service) => (
-          <article key={service} className="card">
-            <h3>{service}</h3>
-            <p>
-              This card can later include schedules, descriptions, coordinators,
-              and registration links.
-            </p>
-          </article>
-        ))}
-      </section>
+  return (
+    <div className="subpage">
+      <h1>{copy.services.title}</h1>
+
+      <div className="page-grid">
+        <article className="page-panel">
+          <h2>{copy.services.gatheringTitle}</h2>
+          <p>{copy.services.gatheringText}</p>
+        </article>
+
+        <article className="page-panel">
+          <h2>{copy.services.learningTitle}</h2>
+          <p>{copy.services.learningText}</p>
+        </article>
+
+        <article className="page-panel">
+          <h2>{copy.services.annualTitle}</h2>
+          <p>{copy.services.annualText}</p>
+        </article>
+
+        <article className="page-panel">
+          <h2>{copy.services.supportTitle}</h2>
+          <p>{copy.services.supportText}</p>
+        </article>
+      </div>
     </div>
   );
 }

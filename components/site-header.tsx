@@ -3,16 +3,31 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+import { LanguageSwitcher } from "@/components/language-switcher";
+import { useLanguage } from "@/components/language-provider";
 import { siteConfig } from "@/content/site";
 
 export function SiteHeader() {
   const pathname = usePathname();
+  const { copy } = useLanguage();
+
+  const navLabelByHref: Record<string, string> = {
+    "/": copy.nav.home,
+    "/about": copy.nav.about,
+    "/team": copy.nav.team,
+    "/annual-event": copy.nav.annualEvent,
+    "/gallery": copy.nav.gallery,
+    "/donate": copy.nav.donate,
+    "/contact": copy.nav.contact,
+    "/register": copy.nav.register,
+  };
 
   return (
     <header className="site-shell compact-header">
+      <LanguageSwitcher />
       <nav aria-label="Main navigation" className="main-nav main-nav-compact">
         <Link href="/" className="nav-home-link">
-          Home
+          {copy.nav.home}
         </Link>
         {siteConfig.navigation
           .filter((item) => item.href !== "/")
@@ -25,7 +40,7 @@ export function SiteHeader() {
                 href={item.href}
                 className={isActive ? "nav-link nav-link-active" : "nav-link"}
               >
-                {item.label}
+                {navLabelByHref[item.href] ?? item.label}
               </Link>
             );
           })}
