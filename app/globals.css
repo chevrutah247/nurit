@@ -931,6 +931,90 @@ html[dir='rtl'] .cta-inner {
   font-size: 0.95rem;
 }
 
+.partners-hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.partners-subscribe-header {
+  max-width: 760px;
+  margin-bottom: 22px;
+}
+
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.subscribe-card {
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(140, 74, 107, 0.12);
+  border-radius: 18px;
+  padding: 26px;
+}
+
+.subscribe-card-header {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  margin-bottom: 18px;
+}
+
+.subscribe-card-header h2 {
+  margin-bottom: 8px;
+  color: var(--accent);
+}
+
+.subscribe-card-header p {
+  margin: 0;
+  color: var(--text-soft);
+}
+
+.subscribe-card-emoji {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.subscribe-form {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.subscribe-form input {
+  flex: 1 1 260px;
+  min-height: 52px;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+  font: inherit;
+  color: var(--text);
+}
+
+.subscribe-form input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.subscribe-success {
+  padding: 16px 18px;
+  border-radius: 12px;
+  background: rgba(80, 160, 110, 0.12);
+  color: #256b43;
+  font-weight: 700;
+}
+
+.subscribe-error {
+  margin: 12px 0 0;
+  color: #a73636;
+  font-size: 0.95rem;
+}
+
 /* ═══ SUBPAGE LAYOUT ═══ */
 .subpage {
   max-width: 1200px;
@@ -964,7 +1048,9 @@ html[dir='rtl'] .cta-inner {
   .grid-three { grid-template-columns: 1fr; }
   .team-grid { grid-template-columns: 1fr; }
   .about-pillars { grid-template-columns: 1fr; }
+  .partners-grid { grid-template-columns: 1fr; }
   .register-layout { grid-template-columns: 1fr; }
+  .partners-hero { flex-direction: column; align-items: flex-start; }
 }
 
 @media (max-width: 640px) {

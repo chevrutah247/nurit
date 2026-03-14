@@ -14,6 +14,7 @@ export function SiteHeader() {
   const navLabelByHref: Record<string, string> = {
     "/": copy.nav.home,
     "/about": copy.nav.about,
+    "/partners": copy.nav.partners,
     "/team": copy.nav.team,
     "/annual-event": copy.nav.annualEvent,
     "/gallery": copy.nav.gallery,

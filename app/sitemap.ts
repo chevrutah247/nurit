@@ -5,6 +5,7 @@ import { siteConfig } from "@/content/site";
 const routes = [
   "/",
   "/about",
+  "/partners",
   "/donate",
   "/annual-event",
   "/team",

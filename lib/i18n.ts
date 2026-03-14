@@ -24,6 +24,7 @@ export const translations = {
     nav: {
       home: 'Home',
       about: 'About Us',
+      partners: 'Partners',
       team: 'Team',
       annualEvent: 'Annual Event',
       gallery: 'Gallery',
@@ -233,6 +234,26 @@ export const translations = {
       success: 'Your message has been sent.',
       error: 'Something went wrong. Please try again.',
     },
+    partners: {
+      title: 'Partners',
+      introTitle: 'Education On The Go',
+      introText:
+        'A partner educational project sharing meaningful Jewish reading, inspiration, and family-friendly publications online.',
+      visitSite: 'Visit edonthego.org',
+      subscribeTitle: 'Subscribe to the newspapers',
+      subscribeText:
+        'Choose the edition you would like to receive and leave your email.',
+      russianTitle: 'Chevrutah24x7 (RUS)',
+      russianText:
+        'Russian-language edition with inspiring reading and community content.',
+      kidsTitle: 'Chevrutah KIDS',
+      kidsText:
+        'A children’s edition with warm Jewish content for young readers and families.',
+      emailPlaceholder: 'Your email',
+      subscribeButton: 'Subscribe',
+      success: 'Subscription request sent.',
+      error: 'Could not send subscription request.',
+    },
     shabbat: {
       parashat: 'Parashat',
       candleLighting: 'Candle lighting',
@@ -243,6 +264,7 @@ export const translations = {
     nav: {
       home: 'Главная',
       about: 'О нас',
+      partners: 'Партнеры',
       team: 'Команда',
       annualEvent: 'Ежегодное событие',
       gallery: 'Галерея',
@@ -454,6 +476,26 @@ export const translations = {
       success: 'Ваше сообщение отправлено.',
       error: 'Что-то пошло не так. Попробуйте еще раз.',
     },
+    partners: {
+      title: 'Партнеры',
+      introTitle: 'Education On The Go',
+      introText:
+        'Партнерский образовательный проект, который делится содержательными еврейскими материалами для чтения, вдохновением и семейными изданиями онлайн.',
+      visitSite: 'Перейти на edonthego.org',
+      subscribeTitle: 'Подписка на газеты',
+      subscribeText:
+        'Выберите нужное издание и оставьте свой email.',
+      russianTitle: 'Chevrutah24x7 (RUS)',
+      russianText:
+        'Русскоязычное издание с вдохновляющим чтением и материалами для сообщества.',
+      kidsTitle: 'Chevrutah KIDS',
+      kidsText:
+        'Детское издание с теплым еврейским содержанием для детей и семей.',
+      emailPlaceholder: 'Ваш email',
+      subscribeButton: 'Подписаться',
+      success: 'Заявка на подписку отправлена.',
+      error: 'Не удалось отправить заявку на подписку.',
+    },
     shabbat: {
       parashat: 'Недельная глава',
       candleLighting: 'Зажигание свечей',
@@ -464,6 +506,7 @@ export const translations = {
     nav: {
       home: 'ראשי',
       about: 'אודות',
+      partners: 'שותפים',
       team: 'צוות',
       annualEvent: 'אירוע שנתי',
       gallery: 'גלריה',
@@ -673,6 +716,26 @@ export const translations = {
       send: 'שליחת הודעה',
       success: 'ההודעה נשלחה בהצלחה.',
       error: 'אירעה שגיאה. נסי שוב.',
+    },
+    partners: {
+      title: 'שותפים',
+      introTitle: 'Education On The Go',
+      introText:
+        'פרויקט חינוכי שותף המפיץ תוכן יהודי מעשיר, השראה ועלוני משפחה לקוראים אונליין.',
+      visitSite: 'מעבר ל-edonthego.org',
+      subscribeTitle: 'הרשמה לעלונים',
+      subscribeText:
+        'בחרי את המהדורה הרצויה והשאירי את האימייל שלך.',
+      russianTitle: 'Chevrutah24x7 (RUS)',
+      russianText:
+        'מהדורה ברוסית עם חומרי קריאה מעוררי השראה ותוכן קהילתי.',
+      kidsTitle: 'Chevrutah KIDS',
+      kidsText:
+        'מהדורת ילדים עם תוכן יהודי חם לילדים ולמשפחות.',
+      emailPlaceholder: 'האימייל שלך',
+      subscribeButton: 'הרשמה',
+      success: 'בקשת ההרשמה נשלחה.',
+      error: 'לא ניתן היה לשלוח את הבקשה.',
     },
     shabbat: {
       parashat: 'פרשת',
