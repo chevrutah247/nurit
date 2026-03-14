@@ -128,13 +128,13 @@ p, li, label, input, textarea {
 
 .hero-logo-link {
   position: absolute;
-  top: 16px;
-  left: 20px;
+  top: 18px;
+  left: 18px;
   z-index: 8;
   display: inline-flex;
   align-items: flex-start;
   justify-content: flex-start;
-  max-width: min(42vw, 360px);
+  max-width: min(34vw, 300px);
 }
 
 .hero-corner-logo {
@@ -181,7 +181,7 @@ p, li, label, input, textarea {
 
 .hero-overlay-content {
   max-width: 600px;
-  padding: 40px 60px;
+  padding: 150px 60px 40px;
   color: #fff;
 }
 
@@ -714,7 +714,7 @@ p, li, label, input, textarea {
   .hero-logo-link {
     top: 12px;
     left: 12px;
-    max-width: min(62vw, 260px);
+    max-width: min(56vw, 220px);
   }
 
   .nav-link,
