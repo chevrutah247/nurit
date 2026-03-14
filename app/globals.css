@@ -939,6 +939,28 @@ html[dir='rtl'] .cta-inner {
   margin-bottom: 28px;
 }
 
+.partners-hero-copy {
+  flex: 1 1 520px;
+}
+
+.partners-brand-card {
+  flex: 0 1 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  padding: 20px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(140, 74, 107, 0.12);
+}
+
+.partners-brand-logo {
+  width: min(100%, 300px);
+  height: auto;
+  object-fit: contain;
+}
+
 .partners-subscribe-header {
   max-width: 760px;
   margin-bottom: 22px;
@@ -1050,7 +1072,8 @@ html[dir='rtl'] .cta-inner {
   .about-pillars { grid-template-columns: 1fr; }
   .partners-grid { grid-template-columns: 1fr; }
   .register-layout { grid-template-columns: 1fr; }
-  .partners-hero { flex-direction: column; align-items: flex-start; }
+  .partners-hero { flex-direction: column; align-items: stretch; }
+  .partners-brand-card { align-self: center; width: min(100%, 360px); }
 }
 
 @media (max-width: 640px) {
