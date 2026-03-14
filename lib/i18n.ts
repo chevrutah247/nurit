@@ -78,6 +78,32 @@ export const translations = {
       whoWeServeTitle: 'Who We Serve',
       whoWeServeText:
         'Women of all ages from the Russian-speaking Jewish community. Whether you are new to the neighborhood or a longtime resident, you are welcome here.',
+      inspirationEyebrow: 'Mission of Jewish Women',
+      inspirationTitle: 'A woman carries a unique spiritual strength that brings light to the whole world.',
+      inspirationLead:
+        'This message should inspire every Jewish woman with dignity, inner strength, and a deep sense of purpose.',
+      quote:
+        'In the merit of righteous women our ancestors left Egypt, and in the merit of righteous women the final Redemption will come.',
+      quoteSource:
+        'Words of the Lubavitcher Rebbe — Rabbi Menachem Mendel Schneerson',
+      pillarsTitle: 'Three pillars of a great mission',
+      pillars: [
+        {
+          title: 'To Study',
+          text: 'To study Torah, Chassidus, and the teachings of the Rebbe, filling the soul with light.',
+        },
+        {
+          title: 'To Share',
+          text: 'To bring inspiration, warmth, and Jewish strength to every woman, near and far.',
+        },
+        {
+          title: 'To Uplift',
+          text: 'To help build strong Jewish homes, strong children, and a stronger generation.',
+        },
+      ],
+      closingTitle: 'Your light can warm a home, a family, and an entire community.',
+      closingText:
+        'When a Jewish woman strengthens faith, kindness, modesty, Torah, and holiness in daily life, she does not change only herself. She raises the people around her and brings redemption closer.',
     },
     annual: {
       title: "Annual Women's Gathering",
@@ -240,6 +266,34 @@ export const translations = {
       whoWeServeTitle: 'Для кого мы работаем',
       whoWeServeText:
         'Для женщин всех возрастов из русскоязычного еврейского сообщества. Если вы недавно переехали или живете здесь давно — вам здесь рады.',
+      inspirationEyebrow: 'Миссия еврейской женщины',
+      inspirationTitle:
+        'Еврейская женщина несет в себе особую духовную силу, которая приносит свет всему миру.',
+      inspirationLead:
+        'Этот раздел должен вдохновлять каждую еврейскую женщину достоинством, внутренней силой и глубоким ощущением своей миссии.',
+      quote:
+        'В заслугу праведных женщин вышли наши предки из Египта, и в заслугу праведных женщин наступит окончательное Избавление.',
+      quoteSource:
+        'Слова Любавического Ребе — Рабби Менахема-Мендла Шнеерсона',
+      pillarsTitle: 'Три столпа великой миссии',
+      pillars: [
+        {
+          title: 'Изучать',
+          text: 'Изучать Тору, хасидус и слова Ребе, наполняя душу светом.',
+        },
+        {
+          title: 'Распространять',
+          text: 'Нести вдохновение, тепло и еврейскую силу каждой женщине — близко и далеко.',
+        },
+        {
+          title: 'Возвышать',
+          text: 'Строить крепкие еврейские дома, сильных детей и более светлое поколение.',
+        },
+      ],
+      closingTitle:
+        'Ваш свет может согреть дом, семью и целое сообщество.',
+      closingText:
+        'Когда еврейская женщина укрепляет веру, доброту, скромность, Тору и святость в повседневной жизни, она меняет не только себя. Она поднимает окружающих и приближает Избавление.',
     },
     annual: {
       title: 'Ежегодный женский вечер',
@@ -402,6 +456,33 @@ export const translations = {
       whoWeServeTitle: 'למי זה מיועד',
       whoWeServeText:
         'לנשים בכל הגילאים מהקהילה היהודית דוברת הרוסית. אם את חדשה בשכונה או גרה כאן שנים — את מוזמנת באהבה.',
+      inspirationEyebrow: 'שליחות האישה היהודייה',
+      inspirationTitle:
+        'לאישה היהודייה יש כוח רוחני מיוחד שמביא אור לעולם כולו.',
+      inspirationLead:
+        'החלק הזה נועד לעורר בכל אישה יהודייה תחושת כבוד, עוצמה פנימית ותודעה עמוקה של שליחות.',
+      quote:
+        'בזכות נשים צדקניות נגאלו אבותינו ממצרים, ובזכות נשים צדקניות תבוא הגאולה השלמה.',
+      quoteSource:
+        'מדברי הרבי מליובאוויטש — רבי מנחם מנדל שניאורסון',
+      pillarsTitle: 'שלושה עמודים של שליחות גדולה',
+      pillars: [
+        {
+          title: 'ללמוד',
+          text: 'ללמוד תורה, חסידות ודברי הרבי, ולמלא את הנשמה באור.',
+        },
+        {
+          title: 'להפיץ',
+          text: 'להביא השראה, חום ועוצמה יהודית לכל אישה, מקרוב ומרחוק.',
+        },
+        {
+          title: 'לרומם',
+          text: 'לבנות בתים יהודיים חזקים, ילדים חזקים ודור מאיר יותר.',
+        },
+      ],
+      closingTitle: 'האור שלך יכול לחמם בית, משפחה וקהילה שלמה.',
+      closingText:
+        'כאשר אישה יהודייה מחזקת אמונה, חסד, צניעות, תורה וקדושה בחיי היום־יום, היא אינה משנה רק את עצמה. היא מרוממת את הסובבים אותה ומקרבת את הגאולה.',
     },
     annual: {
       title: 'המפגש השנתי לנשים',

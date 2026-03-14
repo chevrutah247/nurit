@@ -607,6 +607,103 @@ p, li, label, input, textarea {
   color: var(--text-soft);
 }
 
+.about-inspiration {
+  margin-top: 36px;
+  padding: 40px 0 8px;
+  border-top: 1px solid rgba(140, 74, 107, 0.16);
+}
+
+.about-inspiration-header {
+  max-width: 860px;
+  margin: 0 auto 28px;
+  text-align: center;
+}
+
+.about-inspiration-lead {
+  max-width: 760px;
+  margin: 14px auto 0;
+  color: var(--text-soft);
+  font-style: italic;
+}
+
+.inspiration-quote {
+  max-width: 900px;
+  margin: 0 auto 28px;
+  padding: 32px 34px;
+  background: linear-gradient(180deg, rgba(140, 74, 107, 0.05), rgba(158, 124, 61, 0.04));
+  border: 1px solid rgba(140, 74, 107, 0.12);
+  border-left: 4px solid rgba(140, 74, 107, 0.5);
+  border-radius: 14px;
+}
+
+.inspiration-quote-text {
+  margin: 0;
+  font-size: clamp(1.3rem, 1.1rem + 0.5vw, 1.55rem);
+  line-height: 1.8;
+  color: var(--text);
+  font-style: italic;
+}
+
+.inspiration-quote-source {
+  margin: 16px 0 0;
+  color: var(--text-soft);
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.about-pillars-section {
+  margin-top: 10px;
+}
+
+.about-pillars-section h3,
+.about-closing-call h3 {
+  text-align: center;
+  color: var(--accent);
+  margin-bottom: 18px;
+}
+
+.about-pillars {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.about-pillar {
+  padding: 24px 22px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(140, 74, 107, 0.12);
+  border-radius: 14px;
+  text-align: center;
+}
+
+.about-pillar h4 {
+  margin: 0 0 10px;
+  font-family: var(--font-heading), Georgia, serif;
+  font-size: 1.45rem;
+  color: var(--accent);
+}
+
+.about-pillar p {
+  margin: 0;
+  color: var(--text-soft);
+}
+
+.about-closing-call {
+  max-width: 860px;
+  margin: 28px auto 0;
+  padding: 28px 30px;
+  text-align: center;
+  background: rgba(140, 74, 107, 0.06);
+  border-radius: 16px;
+}
+
+.about-closing-call p {
+  margin: 0;
+  color: var(--text);
+  font-style: italic;
+}
+
 html[dir='rtl'] body {
   text-align: right;
 }
@@ -765,6 +862,7 @@ html[dir='rtl'] .cta-inner {
   .page-grid { grid-template-columns: 1fr; }
   .grid-three { grid-template-columns: 1fr; }
   .team-grid { grid-template-columns: 1fr; }
+  .about-pillars { grid-template-columns: 1fr; }
   .register-layout { grid-template-columns: 1fr; }
 }
 

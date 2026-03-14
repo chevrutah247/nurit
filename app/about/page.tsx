@@ -24,6 +24,36 @@ export default function AboutPage() {
           <p>{copy.about.whoWeServeText}</p>
         </article>
       </section>
+
+      <section className="about-inspiration">
+        <div className="about-inspiration-header">
+          <p className="eyebrow">{copy.about.inspirationEyebrow}</p>
+          <h2>{copy.about.inspirationTitle}</h2>
+          <p className="about-inspiration-lead">{copy.about.inspirationLead}</p>
+        </div>
+
+        <article className="inspiration-quote">
+          <p className="inspiration-quote-text">{copy.about.quote}</p>
+          <p className="inspiration-quote-source">{copy.about.quoteSource}</p>
+        </article>
+
+        <section className="about-pillars-section">
+          <h3>{copy.about.pillarsTitle}</h3>
+          <div className="about-pillars">
+            {copy.about.pillars.map((pillar) => (
+              <article key={pillar.title} className="about-pillar">
+                <h4>{pillar.title}</h4>
+                <p>{pillar.text}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <article className="about-closing-call">
+          <h3>{copy.about.closingTitle}</h3>
+          <p>{copy.about.closingText}</p>
+        </article>
+      </section>
     </div>
   );
 }
