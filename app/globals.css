@@ -57,10 +57,11 @@ p, li, label, input, textarea {
 /* ═══ HEADER — Logo + one-line nav ═══ */
 .site-header {
   background: var(--surface);
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid rgba(140, 74, 107, 0.18);
   position: sticky;
   top: 0;
   z-index: 50;
+  box-shadow: 0 8px 28px rgba(45, 32, 23, 0.08);
 }
 
 .header-inner {
@@ -69,51 +70,70 @@ p, li, label, input, textarea {
   justify-content: space-between;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 10px 16px;
+  gap: 20px;
+  padding: 14px 16px;
 }
 
 .header-brand {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 14px;
   flex-shrink: 0;
 }
 
 .header-logo {
-  width: 48px;
-  height: 48px;
+  width: 64px;
+  height: 64px;
   object-fit: contain;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 6px 18px rgba(45, 32, 23, 0.12);
+}
+
+.header-brand-copy {
+  display: grid;
+  gap: 2px;
+}
+
+.header-kicker {
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-soft);
 }
 
 .header-name {
   font-family: var(--font-heading), Georgia, serif;
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 700;
   color: var(--accent);
-  letter-spacing: 0.04em;
+  line-height: 1.05;
 }
 
 .header-nav {
   display: flex;
   align-items: center;
-  gap: 4px;
-  flex-wrap: nowrap;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
 .header-nav-link {
-  padding: 8px 14px;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--text-soft);
+  padding: 11px 16px;
+  border-radius: 999px;
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--text);
   white-space: nowrap;
-  transition: background 0.15s, color 0.15s;
+  transition: background 0.15s, color 0.15s, box-shadow 0.15s;
 }
 
 .header-nav-link:hover,
 .header-nav-link:focus-visible {
-  background: var(--accent-light);
+  background: #fff7fb;
   color: var(--accent);
+  box-shadow: 0 4px 14px rgba(45, 32, 23, 0.08);
   outline: none;
 }
 
@@ -144,7 +164,7 @@ p, li, label, input, textarea {
   display: block;
   padding: 14px 16px;
   font-size: 1.15rem;
-  font-weight: 600;
+  font-weight: 700;
   border-radius: 8px;
   color: var(--text);
 }
@@ -729,6 +749,10 @@ p, li, label, input, textarea {
   .header-burger { display: block; }
   .mobile-nav { display: flex; }
 
+  .header-inner {
+    padding: 12px 16px;
+  }
+
   .hero-slides { height: 400px; }
   .hero-overlay-content { padding: 30px 32px; }
 
@@ -741,6 +765,19 @@ p, li, label, input, textarea {
 }
 
 @media (max-width: 640px) {
+  .header-logo {
+    width: 56px;
+    height: 56px;
+  }
+
+  .header-name {
+    font-size: 1.55rem;
+  }
+
+  .header-kicker {
+    font-size: 0.76rem;
+  }
+
   .hero-slides { height: 340px; }
   .hero-overlay-content {
     padding: 20px 20px;
