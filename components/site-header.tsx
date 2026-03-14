@@ -26,7 +26,10 @@ export function SiteHeader() {
     <header className="site-shell compact-header">
       <LanguageSwitcher />
       <nav aria-label="Main navigation" className="main-nav main-nav-compact">
-        <Link href="/" className="nav-home-link">
+        <Link
+          href="/"
+          className={pathname === "/" ? "nav-link nav-link-active" : "nav-link"}
+        >
           {copy.nav.home}
         </Link>
         {siteConfig.navigation

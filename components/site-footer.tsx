@@ -18,7 +18,6 @@ export function SiteFooter() {
             width={160}
             height={54}
           />
-          <span className="footer-title">{copy.footer.title}</span>
         </div>
 
         <div className="footer-links">
@@ -30,7 +29,13 @@ export function SiteFooter() {
       </div>
       <div className="footer-inner" style={{ paddingTop: 16 }}>
         <p className="footer-copy">
-          &copy; {new Date().getFullYear()} {copy.footer.title}. {copy.footer.rights}
+          &copy; {new Date().getFullYear()} {copy.footer.rights}
+        </p>
+        <p className="footer-copy footer-developer">
+          {copy.footer.developerLabel}{' '}
+          <Link href="/developer-contact" className="footer-developer-link">
+            Levi Dombrovsky
+          </Link>
         </p>
       </div>
     </footer>

@@ -31,6 +31,7 @@ export const translations = {
       contact: 'Contact',
       register: 'Register',
       privacy: 'Privacy',
+      developerContact: 'Developer Contact',
     },
     hero: {
       title: "Russian Junior N'shei Chabad",
@@ -211,6 +212,7 @@ export const translations = {
     footer: {
       title: "RJ N'shei Chabad",
       rights: "All rights reserved.",
+      developerLabel: 'Development and maintenance:',
     },
     form: {
       firstName: 'First name',
@@ -220,6 +222,16 @@ export const translations = {
       guests: 'Number of guests',
       notes: 'Notes',
       send: 'Send Registration',
+    },
+    developerContact: {
+      title: 'Message the developer',
+      subtitle: 'Use this form to send a private message to Levi Dombrovsky.',
+      name: 'Your name',
+      email: 'Your email',
+      message: 'Your message',
+      send: 'Send message',
+      success: 'Your message has been sent.',
+      error: 'Something went wrong. Please try again.',
     },
     shabbat: {
       parashat: 'Parashat',
@@ -238,6 +250,7 @@ export const translations = {
       contact: 'Контакты',
       register: 'Регистрация',
       privacy: 'Конфиденциальность',
+      developerContact: 'Связь с разработчиком',
     },
     hero: {
       title: 'Russian Junior N’shei Chabad',
@@ -420,6 +433,7 @@ export const translations = {
     footer: {
       title: "RJ N'shei Chabad",
       rights: 'Все права защищены.',
+      developerLabel: 'Разработка и обслуживание:',
     },
     form: {
       firstName: 'Имя',
@@ -429,6 +443,16 @@ export const translations = {
       guests: 'Количество гостей',
       notes: 'Комментарий',
       send: 'Отправить регистрацию',
+    },
+    developerContact: {
+      title: 'Написать разработчику',
+      subtitle: 'Используйте эту форму, чтобы отправить личное сообщение Levi Dombrovsky.',
+      name: 'Ваше имя',
+      email: 'Ваш email',
+      message: 'Ваше сообщение',
+      send: 'Отправить сообщение',
+      success: 'Ваше сообщение отправлено.',
+      error: 'Что-то пошло не так. Попробуйте еще раз.',
     },
     shabbat: {
       parashat: 'Недельная глава',
@@ -447,6 +471,7 @@ export const translations = {
       contact: 'צור קשר',
       register: 'הרשמה',
       privacy: 'פרטיות',
+      developerContact: 'יצירת קשר עם המפתח',
     },
     hero: {
       title: "Russian Junior N'shei Chabad",
@@ -628,6 +653,7 @@ export const translations = {
     footer: {
       title: "RJ N'shei Chabad",
       rights: 'כל הזכויות שמורות.',
+      developerLabel: 'פיתוח ותחזוקה:',
     },
     form: {
       firstName: 'שם פרטי',
@@ -637,6 +663,16 @@ export const translations = {
       guests: 'מספר אורחות',
       notes: 'הערות',
       send: 'שלחי הרשמה',
+    },
+    developerContact: {
+      title: 'שליחת הודעה למפתח',
+      subtitle: 'אפשר להשתמש בטופס זה כדי לשלוח הודעה אישית ל-Levi Dombrovsky.',
+      name: 'השם שלך',
+      email: 'האימייל שלך',
+      message: 'ההודעה שלך',
+      send: 'שליחת הודעה',
+      success: 'ההודעה נשלחה בהצלחה.',
+      error: 'אירעה שגיאה. נסי שוב.',
     },
     shabbat: {
       parashat: 'פרשת',

@@ -71,7 +71,7 @@ export function HeroSlideshow() {
         ))}
         <div className="hero-overlay">
           <div className="hero-overlay-content">
-            <h1>{copy.hero.title}</h1>
+            <h1 className="hero-title-visually-hidden">{copy.hero.title}</h1>
             <p className="hero-tagline">
               {copy.hero.taglineLine1}
               <br />
