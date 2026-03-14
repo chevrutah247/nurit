@@ -9,29 +9,26 @@ export function SiteHeader() {
   const pathname = usePathname();
 
   return (
-    <header className="site-shell header">
-      <div className="brand-block">
-        <p className="eyebrow">Welcoming women with clarity and warmth</p>
-        <Link href="/" className="brand-link">
-          {siteConfig.name}
+    <header className="site-shell compact-header">
+      <nav aria-label="Main navigation" className="main-nav main-nav-compact">
+        <Link href="/" className="nav-home-link">
+          Home
         </Link>
-        <p className="brand-subtitle">{siteConfig.organization}</p>
-      </div>
+        {siteConfig.navigation
+          .filter((item) => item.href !== "/")
+          .map((item) => {
+            const isActive = pathname === item.href;
 
-      <nav aria-label="Main navigation" className="main-nav">
-        {siteConfig.navigation.map((item) => {
-          const isActive = pathname === item.href;
-
-          return (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={isActive ? "nav-link nav-link-active" : "nav-link"}
-            >
-              {item.label}
-            </Link>
-          );
-        })}
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={isActive ? "nav-link nav-link-active" : "nav-link"}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
       </nav>
     </header>
   );
