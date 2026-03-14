@@ -657,7 +657,8 @@ p, li, label, input, textarea {
 }
 
 .about-pillars-section h3,
-.about-closing-call h3 {
+.about-closing-call h3,
+.about-quotes-section h3 {
   text-align: center;
   color: var(--accent);
   margin-bottom: 18px;
@@ -702,6 +703,40 @@ p, li, label, input, textarea {
   margin: 0;
   color: var(--text);
   font-style: italic;
+}
+
+.about-quotes-section {
+  margin-top: 30px;
+}
+
+.about-quotes {
+  display: grid;
+  gap: 18px;
+}
+
+.about-quote-card {
+  position: relative;
+  padding: 28px 30px 22px;
+  background: rgba(255, 255, 255, 0.76);
+  border: 1px solid rgba(140, 74, 107, 0.12);
+  border-left: 4px solid rgba(140, 74, 107, 0.45);
+  border-radius: 14px;
+}
+
+.about-quote-text {
+  margin: 0;
+  font-size: clamp(1.15rem, 1.05rem + 0.35vw, 1.35rem);
+  line-height: 1.85;
+  color: var(--text);
+  font-style: italic;
+}
+
+.about-quote-source {
+  margin: 14px 0 0;
+  color: var(--text-soft);
+  font-size: 0.92rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 html[dir='rtl'] body {

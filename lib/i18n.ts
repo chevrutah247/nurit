@@ -104,6 +104,21 @@ export const translations = {
       closingTitle: 'Your light can warm a home, a family, and an entire community.',
       closingText:
         'When a Jewish woman strengthens faith, kindness, modesty, Torah, and holiness in daily life, she does not change only herself. She raises the people around her and brings redemption closer.',
+      quotesTitle: 'Words that strengthen a woman’s mission',
+      quotes: [
+        {
+          text: 'Righteous women of the final generation of exile carry the merit of the righteous women who left Egypt. In their merit, redemption comes closer.',
+          source: 'Sefer HaSichot 5752',
+        },
+        {
+          text: 'At the giving of the Torah, G-d first addressed the women. In the building of the Mishkan, women were among the foremost contributors. Their merit reflects a unique spiritual greatness.',
+          source: 'Toras Menachem 5752',
+        },
+        {
+          text: 'In our generation, the woman is a central force of the Jewish home and of the Jewish world.',
+          source: 'Simchat Torah 5713',
+        },
+      ],
     },
     annual: {
       title: "Annual Women's Gathering",
@@ -294,6 +309,25 @@ export const translations = {
         'Ваш свет может согреть дом, семью и целое сообщество.',
       closingText:
         'Когда еврейская женщина укрепляет веру, доброту, скромность, Тору и святость в повседневной жизни, она меняет не только себя. Она поднимает окружающих и приближает Избавление.',
+      quotesTitle: 'Слова, укрепляющие миссию женщины',
+      quotes: [
+        {
+          text: 'Праведные женщины последнего поколения галута несут в себе заслугу праведных женщин, которые вышли из Египта. Именно в их заслугу приближается Избавление.',
+          source: 'Сефер ГаСихот 5752',
+        },
+        {
+          text: 'При даровании Торы Всевышний обратился сначала к женщинам. При постройке Мишкана женщины были среди главных жертвователей. Эта заслуга отражает уникальную духовную высоту еврейской женщины.',
+          source: 'Торас Менахем 5752',
+        },
+        {
+          text: 'В нашем поколении женщина является одной из главных движущих сил еврейского дома и всего еврейского мира.',
+          source: 'Симхат Тора 5713',
+        },
+        {
+          text: 'Это не просто женская организация — это духовная армия последнего поколения.',
+          source: 'Игрот Кодеш',
+        },
+      ],
     },
     annual: {
       title: 'Ежегодный женский вечер',
@@ -483,6 +517,25 @@ export const translations = {
       closingTitle: 'האור שלך יכול לחמם בית, משפחה וקהילה שלמה.',
       closingText:
         'כאשר אישה יהודייה מחזקת אמונה, חסד, צניעות, תורה וקדושה בחיי היום־יום, היא אינה משנה רק את עצמה. היא מרוממת את הסובבים אותה ומקרבת את הגאולה.',
+      quotesTitle: 'מילים המחזקות את שליחות האישה',
+      quotes: [
+        {
+          text: 'הנשים הצדקניות של הדור האחרון נושאות את זכותן של הנשים הצדקניות שיצאו ממצרים, ובזכותן מתקרבת הגאולה.',
+          source: 'ספר השיחות תשנ"ב',
+        },
+        {
+          text: 'במתן תורה פנה הקב"ה תחילה אל הנשים. גם בהקמת המשכן היו הנשים מן התורמות המרכזיות. זכות זו מבטאת את מעלתה הרוחנית המיוחדת של האישה היהודייה.',
+          source: 'תורת מנחם תשנ"ב',
+        },
+        {
+          text: 'בדור שלנו האישה היא מן הכוחות המרכזיים של הבית היהודי ושל העולם היהודי כולו.',
+          source: 'שמחת תורה תשי"ג',
+        },
+        {
+          text: 'זו איננה רק ארגון נשים — זו צבא רוחני של הדור האחרון.',
+          source: 'אגרות קודש',
+        },
+      ],
     },
     annual: {
       title: 'המפגש השנתי לנשים',

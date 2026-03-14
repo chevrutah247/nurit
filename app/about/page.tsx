@@ -49,6 +49,18 @@ export default function AboutPage() {
           </div>
         </section>
 
+        <section className="about-quotes-section">
+          <h3>{copy.about.quotesTitle}</h3>
+          <div className="about-quotes">
+            {copy.about.quotes.map((quote) => (
+              <article key={quote.text} className="about-quote-card">
+                <p className="about-quote-text">{quote.text}</p>
+                <p className="about-quote-source">{quote.source}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
         <article className="about-closing-call">
           <h3>{copy.about.closingTitle}</h3>
           <p>{copy.about.closingText}</p>
