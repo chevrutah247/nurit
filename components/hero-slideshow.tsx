@@ -41,16 +41,6 @@ export function HeroSlideshow() {
   return (
     <section className="hero-banner">
       <div className="hero-slides">
-        <Link href="/" className="hero-logo-link" aria-label="Go to home page">
-          <Image
-            src="/images/001.png"
-            alt="Junior N'shei Chabad logo"
-            width={150}
-            height={149}
-            className="hero-corner-logo"
-            priority
-          />
-        </Link>
         {slides.map((slide, i) => (
           <div
             key={slide.src}
