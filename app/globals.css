@@ -60,8 +60,12 @@ p, li, label, input, textarea {
   display: flex;
   gap: 16px;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   padding: 14px 0 10px;
+}
+
+.compact-header {
+  flex-wrap: nowrap;
 }
 
 .language-switcher {
@@ -92,14 +96,22 @@ p, li, label, input, textarea {
 
 .main-nav {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
   gap: 10px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  scrollbar-width: none;
 }
 
 .main-nav-compact {
-  width: 100%;
+  flex: 1 1 auto;
   align-items: center;
+}
+
+.main-nav::-webkit-scrollbar {
+  display: none;
 }
 
 .nav-home-link {
@@ -107,6 +119,7 @@ p, li, label, input, textarea {
 }
 
 .nav-link {
+  flex: 0 0 auto;
   padding: 10px 16px;
   border-radius: 999px;
   background: rgba(255, 250, 241, 0.72);
