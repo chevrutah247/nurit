@@ -56,20 +56,23 @@ export async function POST(request: Request) {
     await resend.emails.send({
       from: "Russian Junior N'shei Chabad <noreply@shabbathub.com>",
       to: email,
-      subject: 'Спасибо за регистрацию! | Thank you for registering!',
+      subject: "Welcome to Russian Junior N'shei Chabad!",
       html: `
-        <div style="font-family:Georgia,serif;max-width:600px;margin:0 auto;padding:32px;background:#faf6f0;border-radius:12px;">
-          <h2 style="color:#8c4a6b;text-align:center;margin-bottom:24px;">Russian Junior N'shei Chabad</h2>
-          <p style="color:#2d2017;font-size:18px;">Дорогая <strong>${name}</strong>,</p>
-          <p style="color:#2d2017;font-size:16px;">Спасибо за регистрацию! Мы рады приветствовать вас в нашем сообществе.</p>
-          <div style="background:#f5edd8;border-radius:10px;padding:20px;margin:20px 0;text-align:center;">
-            <p style="color:#6b5a4e;font-size:14px;margin-bottom:8px;">Ваш еврейский день рождения:</p>
-            <p style="color:#8c4a6b;font-size:22px;font-weight:700;margin:0;">${hebrewBirthday}</p>
-            <p style="color:#9e7c3d;font-size:20px;font-weight:600;margin-top:8px;direction:rtl;">${hebrewBirthdayHeb}</p>
+        <div style="font-family:Georgia,serif;max-width:600px;margin:0 auto;padding:40px;background:#faf6f0;border-radius:12px;">
+          <div style="text-align:center;margin-bottom:32px;">
+            <img src="https://www.rjnsheichabad.com/images/rjnc-logo.png" alt="Russian Junior N'shei Chabad" width="200" style="max-width:200px;" />
           </div>
-          <p style="color:#2d2017;font-size:16px;">Вы будете получать обновления о наших мероприятиях, уроках и фарбренгенах.</p>
-          <hr style="border:none;border-top:1px solid #d4c9bc;margin:24px 0;">
-          <p style="color:#6b5a4e;font-size:13px;text-align:center;">Russian Junior N'shei Chabad · Brooklyn, NY<br><a href="https://www.rjnsheichabad.com" style="color:#8c4a6b;">rjnsheichabad.com</a></p>
+          <h2 style="color:#8c4a6b;text-align:center;font-size:28px;margin-bottom:28px;">Russian Junior N'shei Chabad</h2>
+          <p style="color:#2d2017;font-size:22px;">Dear <strong>${name}</strong>,</p>
+          <p style="color:#2d2017;font-size:20px;">Thank you for registering! We are happy to welcome you to our community.</p>
+          <div style="background:#f5edd8;border-radius:10px;padding:24px;margin:24px 0;text-align:center;">
+            <p style="color:#6b5a4e;font-size:16px;margin-bottom:10px;">Your Hebrew Birthday:</p>
+            <p style="color:#8c4a6b;font-size:28px;font-weight:700;margin:0;">${hebrewBirthday}</p>
+            <p style="color:#9e7c3d;font-size:26px;font-weight:600;margin-top:10px;direction:rtl;">${hebrewBirthdayHeb}</p>
+          </div>
+          <p style="color:#2d2017;font-size:20px;">You will receive updates about our events, classes, and farbrengens.</p>
+          <hr style="border:none;border-top:1px solid #d4c9bc;margin:28px 0;">
+          <p style="color:#6b5a4e;font-size:14px;text-align:center;">Russian Junior N'shei Chabad &middot; Brooklyn, NY<br><a href="https://www.rjnsheichabad.com" style="color:#8c4a6b;font-size:16px;">rjnsheichabad.com</a></p>
         </div>
       `,
     });
