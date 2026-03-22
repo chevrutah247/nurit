@@ -780,7 +780,7 @@ html[dir='rtl'] .hero-logo-link {
 
 html[dir='rtl'] .hero-overlay-content {
   margin-right: auto;
-  padding: 130px 320px 40px 60px;
+  padding: 130px 32px 40px 60px;
   text-align: right;
 }
 
@@ -870,6 +870,7 @@ html[dir='rtl'] .cta-inner {
 
 .footer-links {
   display: flex;
+  flex-wrap: wrap;
   gap: 24px;
   font-weight: 600;
 }
@@ -1102,7 +1103,7 @@ html[dir='rtl'] .cta-inner {
   }
 
   html[dir='rtl'] .hero-overlay-content {
-    padding: 120px 210px 20px 20px;
+    padding: 120px 20px 20px 20px;
   }
 
   .nav-link,
@@ -1128,4 +1129,21 @@ html[dir='rtl'] .cta-inner {
 
   .button-large { padding: 14px 28px; font-size: 1.05rem; }
   .welcome-section, .programs-section, .actions-section, .cta-section { padding: 40px 0; }
+
+  .footer-links {
+    gap: 12px 16px;
+    justify-content: center;
+  }
+
+  .lang-button {
+    min-width: 62px;
+    padding: 10px 12px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-pillars {
+    grid-template-columns: 1fr;
+  }
 }

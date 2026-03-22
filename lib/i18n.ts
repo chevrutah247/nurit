@@ -28,6 +28,7 @@ export const translations = {
       team: 'Team',
       annualEvent: 'Annual Event',
       gallery: 'Gallery',
+      sponsors: 'Sponsors',
       donate: 'Donate',
       contact: 'Contact',
       register: 'Register',
@@ -106,7 +107,7 @@ export const translations = {
       closingTitle: 'Your light can warm a home, a family, and an entire community.',
       closingText:
         'When a Jewish woman strengthens faith, kindness, modesty, Torah, and holiness in daily life, she does not change only herself. She raises the people around her and brings redemption closer.',
-      quotesTitle: 'Words that strengthen a woman’s mission',
+      quotesTitle: "Words that strengthen a woman's mission",
       quotes: [
         {
           text: 'Righteous women of the final generation of exile carry the merit of the righteous women who left Egypt. In their merit, redemption comes closer.',
@@ -248,7 +249,7 @@ export const translations = {
         'Russian-language edition with inspiring reading and community content.',
       kidsTitle: 'Chevrutah KIDS',
       kidsText:
-        'A children’s edition with warm Jewish content for young readers and families.',
+        "A children's edition with warm Jewish content for young readers and families.",
       emailPlaceholder: 'Your email',
       subscribeButton: 'Subscribe',
       success: 'Subscription request sent.',
@@ -268,6 +269,7 @@ export const translations = {
       team: 'Команда',
       annualEvent: 'Ежегодное событие',
       gallery: 'Галерея',
+      sponsors: '\u0421\u043f\u043e\u043d\u0441\u043e\u0440\u044b',
       donate: 'Пожертвовать',
       contact: 'Контакты',
       register: 'Регистрация',
@@ -275,7 +277,7 @@ export const translations = {
       developerContact: 'Связь с разработчиком',
     },
     hero: {
-      title: 'Russian Junior N’shei Chabad',
+      title: "Russian Junior N'shei Chabad",
       taglineLine1: 'Теплое сообщество для женщин всех возрастов.',
       taglineLine2: 'Встречи, вдохновение и связь между людьми.',
       register: 'Регистрация',
@@ -309,7 +311,15 @@ export const translations = {
       title: 'О нас',
       missionTitle: 'Наша миссия',
       missionText:
-        'Russian Junior N’shei Chabad — это теплое сообщество русскоязычных еврейских женщин в Бруклине. Мы поддерживаем, вдохновляем и объединяем женщин через важные события, обучение и заботу о сообществе.',
+        `Организация русскоговорящих еврейских женщин Хабада была основана в Рош Ходеш Шват 1999 года в Краун-Хайтс, Бруклин, Нью-Йорк. Уже более 26 лет она объединяет и вдохновляет женщин по всему Нью-Йорку и за его пределами через изучение Торы и хасидской традиции.
+
+Каждую неделю проходят четыре урока по Хасидусу, Галахе, Рамбаму и Пиркей Овос. Уроки также транслируются онлайн и достигают русскоговорящих женщин по всему миру, вдохновляя их укреплять свою связь с Торой и еврейской жизнью.
+
+Ежемесячно на Рош Ходеш проводится фарбренген, а раз в год — большой юбилейный фарбренген, продолжающий традицию уже 26 лет.
+
+Наша организация также оказывает практическую помощь: поддержку роженицам, больным и семьям, нуждающимся в материальной помощи и домашней еде.
+
+Наша цель — укреплять еврейский дух женщин, вдохновлять их быть настоящими акерес габайс — сердцем и основой еврейского дома, учить, объединять и поддерживать друг друга. Особое внимание уделяется подготовке женщин к приходу Мошиаха — зажигать в сердцах женщин живую веру и ожидание Освобождения, что, в свою очередь, ускоряет его для всего еврейского народа. Ведь в заслугу праведных еврейских женщин еврейский народ был освобождён из Египта, и в их заслугу произойдёт и окончательное Освобождение.`,
       whatWeDoTitle: 'Что мы делаем',
       whatWeDoText:
         'Мы организуем встречи, праздничные программы, уроки Торы и волонтерские инициативы. Наш ежегодный фарбренген собирает сотни женщин на вдохновляющий вечер.',
@@ -510,6 +520,7 @@ export const translations = {
       team: 'צוות',
       annualEvent: 'אירוע שנתי',
       gallery: 'גלריה',
+      sponsors: 'נותני חסות',
       donate: 'תרומה',
       contact: 'צור קשר',
       register: 'הרשמה',

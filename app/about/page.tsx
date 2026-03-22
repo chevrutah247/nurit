@@ -10,6 +10,17 @@ export default function AboutPage() {
       <h1>{copy.about.title}</h1>
       <section className="page-panel" style={{ marginBottom: 24 }}>
         <h2>{copy.about.missionTitle}</h2>
+        <div style={{ borderRadius: 16, overflow: 'hidden', marginBottom: 20, border: '1px solid rgba(212,168,83,0.2)' }}>
+          <div style={{ position: 'relative', width: '100%', aspectRatio: '16/9' }}>
+            <iframe
+              src="https://www.youtube.com/embed/j5ZpRe4HZXM"
+              title="История организации Russian Junior N'shei Chabad"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 'none' }}
+            />
+          </div>
+        </div>
         <p>{copy.about.missionText}</p>
       </section>
 

@@ -13,19 +13,19 @@ export function SiteFooter() {
       <div className="footer-inner">
         <div className="footer-brand">
           <Image
-            src="/images/logo-001-transparent.png"
+            src="/images/rjnc-logo.png"
             alt="Junior N'shei Chabad logo"
             width={160}
             height={54}
           />
         </div>
 
-        <div className="footer-links">
+        <nav className="footer-links" aria-label="Footer navigation">
           <Link href="/about">{copy.nav.about}</Link>
           <Link href="/contact">{copy.nav.contact}</Link>
-          <Link href="/donate">{copy.nav.donate}</Link>
+          <a href="https://www.paypal.com/donate?hosted_button_id=SWQMA9XCGJKA4" target="_blank" rel="noopener noreferrer">{copy.nav.donate}</a>
           <Link href="/privacy-policy">{copy.nav.privacy}</Link>
-        </div>
+        </nav>
       </div>
       <div className="footer-inner" style={{ paddingTop: 16 }}>
         <p className="footer-copy">

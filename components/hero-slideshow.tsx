@@ -46,7 +46,7 @@ export function HeroSlideshow() {
       <div className="hero-slides">
         <Link href="/" className="hero-logo-link" aria-label="Go to home page">
           <Image
-            src="/images/logo-001-transparent.png"
+            src="/images/rjnc-logo.png"
             alt="Junior N'shei Chabad logo"
             width={320}
             height={108}
