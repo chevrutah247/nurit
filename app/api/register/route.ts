@@ -80,8 +80,8 @@ export async function POST(request: Request) {
     // Send notification email to admin
     await resend.emails.send({
       from: "NURIT Website <noreply@shabbathub.com>",
-      to: 'chevrutah24x7@gmail.com',
-      subject: `Новый подписчик NURIT: ${name}`,
+      to: 'nsarytchev@gmail.com',
+      subject: `New NURIT Subscriber: ${name}`,
       html: `
         <div style="font-family:sans-serif;max-width:600px;margin:0 auto;padding:20px;">
           <h2 style="color:#8c4a6b;">Новый подписчик на сайте NURIT</h2>
