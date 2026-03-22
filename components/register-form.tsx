@@ -8,8 +8,21 @@ export function RegisterForm() {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [hebrewBirthday, setHebrewBirthday] = useState('');
   const [hebrewBirthdayHeb, setHebrewBirthdayHeb] = useState('');
+  const [phone, setPhone] = useState('');
 
   const isRtl = language === 'heb';
+
+  const formatPhone = (value: string) => {
+    const digits = value.replace(/\D/g, '');
+    if (digits.length <= 3) return digits;
+    if (digits.length <= 6) return `(${digits.slice(0, 3)}) ${digits.slice(3)}`;
+    return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6, 10)}`;
+  };
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const raw = e.target.value.replace(/\D/g, '').slice(0, 10);
+    setPhone(formatPhone(raw));
+  };
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -21,6 +34,7 @@ export function RegisterForm() {
     const payload = {
       name: formData.get('name') as string,
       email: formData.get('email') as string,
+      phone: phone.replace(/\D/g, ''),
       birthday: formData.get('birthday') as string,
     };
 
@@ -48,55 +62,56 @@ export function RegisterForm() {
 
   const inputStyle: React.CSSProperties = {
     width: '100%',
-    padding: '12px 16px',
-    fontSize: '1rem',
+    padding: '16px 20px',
+    fontSize: '1.25rem',
     border: '1px solid #d4c9bc',
-    borderRadius: '8px',
+    borderRadius: '10px',
     backgroundColor: '#fff',
     color: '#2d2017',
     outline: 'none',
     direction: isRtl ? 'rtl' : 'ltr',
+    boxSizing: 'border-box',
   };
 
   const labelStyle: React.CSSProperties = {
     display: 'block',
-    marginBottom: '6px',
-    fontSize: '0.9rem',
-    fontWeight: 500,
+    marginBottom: '8px',
+    fontSize: '1.1rem',
+    fontWeight: 600,
     color: '#6b5a4e',
   };
 
   const fieldStyle: React.CSSProperties = {
-    marginBottom: '20px',
+    marginBottom: '24px',
   };
 
   if (status === 'success') {
     return (
       <div style={{
-        padding: '32px',
+        padding: '40px',
         textAlign: 'center',
         backgroundColor: '#f5edd8',
         borderRadius: '12px',
         direction: isRtl ? 'rtl' : 'ltr',
       }}>
-        <p style={{ fontSize: '1.1rem', color: '#2d2017', marginBottom: '16px' }}>
+        <p style={{ fontSize: '1.3rem', color: '#2d2017', marginBottom: '20px', fontWeight: 600 }}>
           {copy.register.successMessage}
         </p>
         {hebrewBirthday && (
           <div style={{
-            padding: '16px',
+            padding: '20px',
             backgroundColor: '#faf6f0',
-            borderRadius: '8px',
+            borderRadius: '10px',
             border: '1px solid #d4c9bc',
           }}>
-            <p style={{ fontSize: '0.9rem', color: '#6b5a4e', marginBottom: '4px' }}>
+            <p style={{ fontSize: '1.1rem', color: '#6b5a4e', marginBottom: '8px' }}>
               {copy.register.hebrewBirthdayLabel}
             </p>
-            <p style={{ fontSize: '1.2rem', color: '#8c4a6b', fontWeight: 600 }}>
+            <p style={{ fontSize: '1.5rem', color: '#8c4a6b', fontWeight: 700 }}>
               {hebrewBirthday}
             </p>
             {hebrewBirthdayHeb && (
-              <p style={{ fontSize: '1.1rem', color: '#9e7c3d', direction: 'rtl', marginTop: '4px' }}>
+              <p style={{ fontSize: '1.4rem', color: '#9e7c3d', direction: 'rtl', marginTop: '8px', fontWeight: 600 }}>
                 {hebrewBirthdayHeb}
               </p>
             )}
@@ -119,6 +134,7 @@ export function RegisterForm() {
           required
           autoComplete="name"
           style={inputStyle}
+          placeholder={language === 'rus' ? 'Имя и Фамилия' : language === 'heb' ? 'שם מלא' : 'Full Name'}
         />
       </div>
 
@@ -130,6 +146,21 @@ export function RegisterForm() {
           required
           autoComplete="email"
           style={inputStyle}
+          placeholder="email@example.com"
+        />
+      </div>
+
+      <div style={fieldStyle}>
+        <label style={labelStyle}>{language === 'rus' ? 'Телефон' : language === 'heb' ? 'טלפון' : 'Phone'}</label>
+        <input
+          type="tel"
+          name="phone"
+          required
+          autoComplete="tel"
+          value={phone}
+          onChange={handlePhoneChange}
+          style={inputStyle}
+          placeholder="(347) 555-1234"
         />
       </div>
 
@@ -144,7 +175,7 @@ export function RegisterForm() {
       </div>
 
       {status === 'error' && (
-        <p style={{ color: '#c0392b', fontSize: '0.9rem', marginBottom: '16px' }}>
+        <p style={{ color: '#c0392b', fontSize: '1.1rem', marginBottom: '16px' }}>
           {copy.register.errorMessage}
         </p>
       )}
@@ -154,15 +185,16 @@ export function RegisterForm() {
         disabled={status === 'loading'}
         style={{
           width: '100%',
-          padding: '14px',
-          fontSize: '1rem',
-          fontWeight: 600,
+          padding: '18px',
+          fontSize: '1.3rem',
+          fontWeight: 700,
           color: '#faf6f0',
           backgroundColor: status === 'loading' ? '#b89aab' : '#8c4a6b',
           border: 'none',
-          borderRadius: '8px',
+          borderRadius: '10px',
           cursor: status === 'loading' ? 'not-allowed' : 'pointer',
           transition: 'background-color 0.2s',
+          letterSpacing: '0.5px',
         }}
       >
         {status === 'loading' ? '...' : copy.register.submitButton}

@@ -6,7 +6,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: Request) {
   try {
-    const { name, email, birthday } = await request.json();
+    const { name, email, phone, birthday } = await request.json();
 
     if (!name || !email || !birthday) {
       return NextResponse.json(
@@ -39,6 +39,7 @@ export async function POST(request: Request) {
       .insert({
         name,
         email,
+        phone: phone || null,
         birthday,
         hebrew_birthday: hebrewBirthday,
       });
@@ -60,6 +61,7 @@ export async function POST(request: Request) {
         <h2>New Subscriber Registration</h2>
         <p><strong>Name:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Phone:</strong> ${phone || 'N/A'}</p>
         <p><strong>Birthday (Gregorian):</strong> ${birthday}</p>
         <p><strong>Birthday (Hebrew):</strong> ${hebrewBirthday}</p>
         <p><strong>Birthday (Hebrew script):</strong> ${hebrewBirthdayHeb}</p>
