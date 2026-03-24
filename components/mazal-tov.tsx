@@ -203,6 +203,10 @@ const hebcalToKey: Record<string, string> = {
   'Adar': 'Adar', 'Adar I': 'Adar', 'Adar II': 'Adar',
 }
 
+function normalizeName(value: string) {
+  return value.toLowerCase().replace(/\s+/g, ' ').trim();
+}
+
 export function MazalTov() {
   const { language } = useLanguage();
   const isRu = language === 'rus';
@@ -220,8 +224,43 @@ export function MazalTov() {
         const data = await res.json();
         const hm = data.hm;
         const key = hebcalToKey[hm] || hm;
+        const baseBirthdays = birthdaysByMonth[key] || [];
+
         setHebrewMonth(hm);
-        setBirthdays(birthdaysByMonth[key] || []);
+
+        try {
+          const dynamicRes = await fetch(`/api/birthdays?month=${encodeURIComponent(key)}`);
+          if (!dynamicRes.ok) {
+            setBirthdays(baseBirthdays);
+            return;
+          }
+
+          const dynamicData = await dynamicRes.json();
+          const dynamicBirthdays = Array.isArray(dynamicData.birthdays)
+            ? (dynamicData.birthdays as Birthday[])
+            : [];
+
+          const seen = new Set(baseBirthdays.map((item) => normalizeName(item.name)));
+          const mergedBirthdays = [
+            ...baseBirthdays,
+            ...dynamicBirthdays.filter((item) => {
+              const normalized = normalizeName(item.name);
+              if (seen.has(normalized)) return false;
+              seen.add(normalized);
+              return true;
+            }),
+          ].sort((a, b) => {
+            const aDay = Number(a.day || 999);
+            const bDay = Number(b.day || 999);
+
+            if (aDay !== bDay) return aDay - bDay;
+            return a.name.localeCompare(b.name);
+          });
+
+          setBirthdays(mergedBirthdays);
+        } catch {
+          setBirthdays(baseBirthdays);
+        }
       } catch {}
     }
     fetchMonth();
