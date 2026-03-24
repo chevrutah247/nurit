@@ -10,9 +10,19 @@ import { Schedule } from '@/components/schedule';
 import { WeeklyVideos } from '@/components/weekly-videos';
 import { ShidduchArticles } from '@/components/shidduch-articles';
 
+const TEHILIM_BANNER_HIDE_AT = new Date('2026-05-24T23:59:59-04:00');
+
 export default function HomePage() {
   const { copy, language } = useLanguage();
   const isRu = language === 'rus';
+  const isHebrew = language === 'heb';
+  const showTehilimBanner = new Date() <= TEHILIM_BANNER_HIDE_AT;
+
+  const tehilimBannerText = isRu
+    ? 'Наступающий месяц Сиван благословляем чтением Тегилим в этот Шаббос Меворхим, 24-ого мая.'
+    : isHebrew
+      ? 'אנו מברכים את חודש סיון הקרב בקריאת תהילים בשבת מברכים זו, ב-24 במאי.'
+      : 'We bless the upcoming month of Sivan with Tehilim on this Shabbos Mevarchim, May 24.';
 
   return (
     <div className="page-stack">
@@ -27,6 +37,15 @@ export default function HomePage() {
 
       <section className="actions-section">
         <div className="actions-inner">
+          {showTehilimBanner ? (
+            <div className="tehilim-announcement" role="status" aria-live="polite">
+              <span className="tehilim-announcement-badge">
+                {isRu ? 'Важно' : isHebrew ? 'חשוב' : 'Important'}
+              </span>
+              <p>{tehilimBannerText}</p>
+            </div>
+          ) : null}
+
           <div className="actions-grid">
             <div className="action-card" style={{ cursor: 'default', textAlign: 'center' }}>
               <div style={{ fontSize: 28, marginBottom: 8 }}>📖</div>
