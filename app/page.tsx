@@ -144,9 +144,6 @@ export default function HomePage() {
         <div className="actions-inner">
           {tehilimBanner ? (
             <div className="tehilim-announcement" role="status" aria-live="polite">
-              <span className="tehilim-announcement-badge">
-                {isRu ? 'Важно' : isHebrew ? 'חשוב' : 'Important'}
-              </span>
               <p>{tehilimBannerText}</p>
             </div>
           ) : null}
