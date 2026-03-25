@@ -17,6 +17,14 @@ const monthAliases: Record<string, string[]> = {
   Adar: ['Adar', 'Adar I', 'Adar II'],
 };
 
+const birthdayCorrections: Record<string, { name: string; day: string; month: string }> = {
+  'borukhov ettya': {
+    name: 'Borukhov Ettya',
+    day: '20',
+    month: 'Iyyar',
+  },
+};
+
 function parseHebrewBirthday(value: string | null) {
   if (!value) return null;
 
@@ -64,9 +72,15 @@ export async function GET(request: Request) {
     }) => {
       const parsed = parseHebrewBirthday(row.hebrew_birthday);
       if (!row.name || !parsed) return [];
-      if (!allowedMonths.includes(parsed.month)) return [];
 
       const normalizedName = normalizeName(row.name);
+      const corrected = birthdayCorrections[normalizedName];
+      const effectiveMonth = corrected?.month ?? parsed.month;
+      const effectiveDay = corrected?.day ?? parsed.day;
+      const effectiveName = corrected?.name ?? row.name;
+
+      if (!allowedMonths.includes(effectiveMonth)) return [];
+
       const normalizedEmail = row.email?.toLowerCase().trim();
 
       if ((normalizedEmail && seenEmails.has(normalizedEmail)) || seenNames.has(normalizedName)) {
@@ -77,8 +91,8 @@ export async function GET(request: Request) {
       seenNames.add(normalizedName);
 
       return [{
-        name: row.name,
-        day: parsed.day,
+        name: effectiveName,
+        day: effectiveDay,
       }];
     });
 
