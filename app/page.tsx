@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { useLanguage } from '@/components/language-provider';
 import { HeroSlideshow } from '@/components/hero-slideshow';
 import { MazalTov } from '@/components/mazal-tov';
+import { NossiBanner } from '@/components/nossi-banner';
 import { TehilimCarousel } from '@/components/tehilim-carousel';
 import { Schedule } from '@/components/schedule';
 import { WeeklyVideos } from '@/components/weekly-videos';
@@ -139,6 +140,8 @@ export default function HomePage() {
           <p>{copy.home.welcomeText}</p>
         </div>
       </section>
+
+      <NossiBanner />
 
       <section className="actions-section">
         <div className="actions-inner">

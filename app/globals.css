@@ -390,6 +390,62 @@ p, li, label, input, textarea {
   color: var(--text-soft);
 }
 
+.nossi-strip-section {
+  padding: 0 0 18px;
+}
+
+.nossi-strip {
+  width: min(1200px, calc(100% - 32px));
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  padding: 16px 20px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #21345d 0%, #2b4a7c 52%, #c8932b 100%);
+  color: #fffaf2;
+  box-shadow: 0 16px 34px rgba(33, 52, 93, 0.18);
+}
+
+.nossi-strip-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.nossi-strip-kicker {
+  font-size: 0.84rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 244, 216, 0.88);
+}
+
+.nossi-strip h2 {
+  margin: 0;
+  color: #fffdf9;
+  font-size: clamp(1.1rem, 1rem + 0.42vw, 1.45rem);
+}
+
+.nossi-strip p {
+  margin: 0;
+  color: rgba(255, 249, 239, 0.88);
+  font-size: 0.98rem;
+}
+
+.nossi-strip-button {
+  white-space: nowrap;
+  background: rgba(255, 250, 241, 0.96);
+  color: #22345c;
+  border-color: rgba(255, 250, 241, 0.96);
+}
+
+.nossi-strip-button:hover {
+  background: #fff;
+  border-color: #fff;
+}
+
 /* Action cards */
 .actions-section {
   padding: 60px 0;
@@ -1108,6 +1164,11 @@ html[dir='rtl'] .cta-inner {
 
   .hero-slides { height: 400px; }
   .hero-overlay-content { padding: 220px 32px 30px; }
+
+  .nossi-strip {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
   .tehilim-announcement {
     flex-direction: column;
