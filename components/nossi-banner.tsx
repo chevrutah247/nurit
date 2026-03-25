@@ -30,6 +30,11 @@ export function NossiBanner() {
 
   useEffect(() => {
     const today = new Date();
+    const seasonalCutoff = new Date(today.getFullYear(), 3, 13, 23, 59, 59);
+
+    if (today > seasonalCutoff) {
+      return;
+    }
 
     fetch(
       `https://www.hebcal.com/converter?cfg=json&gy=${today.getFullYear()}&gm=${today.getMonth() + 1}&gd=${today.getDate()}&g2h=1`
@@ -58,29 +63,22 @@ export function NossiBanner() {
       ? 'מא׳ עד י״ב ניסן קוראים בכל יום את הנשיא של אותו יום.'
       : 'From 1 to 12 Nissan, we read the Nossi of the day.';
 
-  const buttonText = isRu
-    ? `Скачать на Shabbathub`
-    : isHebrew
-      ? 'להורדה ב־Shabbathub'
-      : 'Download on Shabbathub';
-
   return (
     <section className="nossi-strip-section">
-      <div className="nossi-strip" role="complementary" aria-label={title}>
+      <a
+        href={pdfUrl ?? 'https://shabbathub.com'}
+        target="_blank"
+        rel="noreferrer"
+        className="nossi-strip"
+        role="complementary"
+        aria-label={title}
+      >
         <div className="nossi-strip-copy">
           <span className="nossi-strip-kicker">Shabbathub.com</span>
           <h2>{title}</h2>
           <p>{description}</p>
         </div>
-        <a
-          href={pdfUrl ?? 'https://shabbathub.com'}
-          target="_blank"
-          rel="noreferrer"
-          className="button button-primary nossi-strip-button"
-        >
-          {buttonText}
-        </a>
-      </div>
+      </a>
     </section>
   );
 }
