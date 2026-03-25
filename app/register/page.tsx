@@ -1,10 +1,18 @@
 'use client';
 
+import Link from 'next/link';
+
 import { useLanguage } from '@/components/language-provider';
 import { RegisterForm } from '@/components/register-form';
 
 export default function RegisterPage() {
-  const { copy } = useLanguage();
+  const { copy, language } = useLanguage();
+  const manageLabel =
+    language === 'rus'
+      ? 'Изменить мои данные'
+      : language === 'heb'
+        ? 'עדכון הפרטים שלי'
+        : 'Update my details';
 
   return (
     <div className="subpage">
@@ -19,6 +27,11 @@ export default function RegisterPage() {
               <li key={item}>{item}</li>
             ))}
           </ul>
+          <p style={{ marginTop: 18 }}>
+            <Link href="/manage-profile" className="button button-secondary">
+              {manageLabel}
+            </Link>
+          </p>
         </section>
 
         <section className="page-panel">

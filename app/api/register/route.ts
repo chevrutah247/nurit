@@ -1,12 +1,27 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 import { supabase } from '@/lib/supabase';
+import { BirthTiming, convertToHebrewBirthday } from '@/lib/hebrew-birthday';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: Request) {
   try {
-    const { name, email, phone, birthday } = await request.json();
+    const {
+      name,
+      email,
+      phone,
+      address,
+      birthday,
+      birthTiming = 'before_sunset',
+    } = await request.json() as {
+      name?: string;
+      email?: string;
+      phone?: string;
+      address?: string;
+      birthday?: string;
+      birthTiming?: BirthTiming;
+    };
 
     if (!name || !email || !birthday) {
       return NextResponse.json(
@@ -15,34 +30,43 @@ export async function POST(request: Request) {
       );
     }
 
-    // Parse the Gregorian date
-    const [gy, gm, gd] = birthday.split('-').map(Number);
+    const {
+      adjustedBirthday,
+      hebrewBirthday,
+      hebrewBirthdayHeb,
+    } = await convertToHebrewBirthday(birthday, birthTiming);
 
-    // Convert Gregorian to Hebrew date via hebcal.com
-    const hebcalUrl = `https://www.hebcal.com/converter?cfg=json&gy=${gy}&gm=${gm}&gd=${gd}&g2h=1`;
-    const hebcalRes = await fetch(hebcalUrl);
+    let dbError = null;
+    const fullInsertPayload = {
+      name,
+      email,
+      phone: phone || null,
+      address: address || null,
+      birthday,
+      adjusted_birthday: adjustedBirthday,
+      birth_timing: birthTiming,
+      hebrew_birthday: hebrewBirthday,
+    };
 
-    if (!hebcalRes.ok) {
-      return NextResponse.json(
-        { error: 'Failed to convert date to Hebrew calendar.' },
-        { status: 502 }
-      );
-    }
-
-    const hebcalData = await hebcalRes.json();
-    const hebrewBirthday = `${hebcalData.hd} ${hebcalData.hm} ${hebcalData.hy}`;
-    const hebrewBirthdayHeb = hebcalData.hebrew as string;
-
-    // Save to Supabase
-    const { error: dbError } = await supabase
+    const fullInsert = await supabase
       .from('nurit_subscribers')
-      .insert({
-        name,
-        email,
-        phone: phone || null,
-        birthday,
-        hebrew_birthday: hebrewBirthday,
-      });
+      .insert(fullInsertPayload);
+
+    dbError = fullInsert.error;
+
+    if (dbError) {
+      const fallbackInsert = await supabase
+        .from('nurit_subscribers')
+        .insert({
+          name,
+          email,
+          phone: phone || null,
+          birthday,
+          hebrew_birthday: hebrewBirthday,
+        });
+
+      dbError = fallbackInsert.error;
+    }
 
     if (dbError) {
       console.error('Supabase error:', dbError);
@@ -88,7 +112,10 @@ export async function POST(request: Request) {
           <p><strong>Имя:</strong> ${name}</p>
           <p><strong>Email:</strong> ${email}</p>
           <p><strong>Телефон:</strong> ${phone || '—'}</p>
+          <p><strong>Адрес:</strong> ${address || '—'}</p>
           <p><strong>День рождения:</strong> ${birthday}</p>
+          <p><strong>Когда родилась:</strong> ${birthTiming === 'after_sunset' ? 'После захода солнца' : 'До захода солнца'}</p>
+          <p><strong>Дата для еврейского расчета:</strong> ${adjustedBirthday}</p>
           <p><strong>Еврейский день рождения:</strong> ${hebrewBirthday} / ${hebrewBirthdayHeb}</p>
         </div>
       `,

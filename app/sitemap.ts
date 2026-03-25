@@ -11,6 +11,7 @@ const routes = [
   { path: "/donate", priority: 0.7, freq: "monthly" as const },
   { path: "/contact", priority: 0.7, freq: "monthly" as const },
   { path: "/register", priority: 0.8, freq: "monthly" as const },
+  { path: "/manage-profile", priority: 0.5, freq: "monthly" as const },
   { path: "/services", priority: 0.6, freq: "monthly" as const },
   { path: "/privacy-policy", priority: 0.3, freq: "yearly" as const },
 ];
