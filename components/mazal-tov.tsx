@@ -36,7 +36,7 @@ const birthdaysByMonth: Record<string, Birthday[]> = {
     { name: 'Sima Vernik', day: '9' },
     { name: 'Chana Fayershtein', day: '12' },
     { name: 'Regina Movshina', day: '17' },
-    { name: 'Etty Boruchov', day: '19' },
+    { name: 'Borukhov Ettya', day: '20' },
     { name: 'Sofa Bolotina', day: '22' },
     { name: 'Ariella Gutshabes', day: '26' },
   ],
