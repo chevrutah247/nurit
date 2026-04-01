@@ -12,6 +12,7 @@ import { TehilimCarousel } from '@/components/tehilim-carousel';
 import { Schedule } from '@/components/schedule';
 import { WeeklyVideos } from '@/components/weekly-videos';
 import { ShidduchArticles } from '@/components/shidduch-articles';
+import { DonationTicker } from '@/components/donation-ticker';
 
 const monthNamesRu: Record<string, string> = {
   Nisan: 'Нисан',
@@ -134,6 +135,8 @@ export default function HomePage() {
   return (
     <div className="page-stack">
       <HeroSlideshow />
+
+      <DonationTicker />
 
       <section className="welcome-section">
         <div className="welcome-inner">
