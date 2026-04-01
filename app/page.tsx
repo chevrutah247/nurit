@@ -5,6 +5,7 @@ import Link from 'next/link';
 
 import { useLanguage } from '@/components/language-provider';
 import { HeroSlideshow } from '@/components/hero-slideshow';
+import { HayomYomCard } from '@/components/hayom-yom-card';
 import { MazalTov } from '@/components/mazal-tov';
 import { NossiBanner } from '@/components/nossi-banner';
 import { TehilimCarousel } from '@/components/tehilim-carousel';
@@ -153,20 +154,7 @@ export default function HomePage() {
 
           <div className="actions-grid">
             <div className="action-card" style={{ cursor: 'default', textAlign: 'center' }}>
-              <div style={{ fontSize: 28, marginBottom: 8 }}>📖</div>
-              <p style={{ color: '#4a3f2f', fontSize: 22, lineHeight: 1.8, fontStyle: 'italic', marginBottom: 16 }}>
-                {isRu
-                  ? '«Если бы Вы только знали всю силу Тегилим, — сказал 3-ий Любавический Ребе, Цемах Цедек, — то говорили бы их постоянно!»'
-                  : '"If you only knew the power of Tehillim," said the 3rd Lubavitcher Rebbe, the Tzemach Tzedek, "you would recite them constantly!"'}
-              </p>
-              <p style={{ color: '#4a3f2f', fontSize: 20, lineHeight: 1.8, fontStyle: 'italic', marginBottom: 16 }}>
-                {isRu
-                  ? '«Знайте, что Псалмы рушат все преграды, поднимаются всё выше и выше безо всяких помех, преклоняются перед Господином всех миров и выполняют своё действие с добротой и милосердием.»'
-                  : '"Know that the Psalms break through all barriers, rise higher and higher without any hindrance, bow before the Master of all worlds, and accomplish their purpose with kindness and mercy."'}
-              </p>
-              <p style={{ color: 'var(--gold, #d4a853)', fontSize: 16, fontWeight: 600, letterSpacing: 1 }}>
-                {isRu ? '«Гайом-Йом» Ребе Шлита' : 'HaYom Yom — The Rebbe Shlita'}
-              </p>
+              <HayomYomCard />
             </div>
             <div className="action-card" style={{ cursor: 'default' }}>
               <TehilimCarousel />

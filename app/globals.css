@@ -471,6 +471,71 @@ p, li, label, input, textarea {
   font-weight: 700;
 }
 
+.hayom-yom-card {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  min-height: 100%;
+  padding: 6px 2px;
+}
+
+.hayom-yom-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  text-align: left;
+}
+
+.hayom-yom-card-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(140, 74, 107, 0.14), rgba(212, 168, 83, 0.18));
+  color: var(--accent);
+  font-size: 1.5rem;
+  flex: 0 0 auto;
+}
+
+.hayom-yom-card-header h3 {
+  margin: 0 0 4px;
+  color: var(--accent);
+  font-size: clamp(1.35rem, 1.2rem + 0.35vw, 1.65rem);
+}
+
+.hayom-yom-card-header p {
+  margin: 0;
+  color: var(--text-soft);
+  font-size: 0.96rem;
+}
+
+.hayom-yom-quote {
+  margin: 0;
+  padding: 20px 22px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(255, 250, 241, 0.95), rgba(245, 237, 216, 0.78));
+  border: 1px solid rgba(212, 168, 83, 0.18);
+  color: #4a3f2f;
+  font-size: clamp(1.08rem, 1rem + 0.2vw, 1.2rem);
+  line-height: 1.9;
+  font-style: italic;
+  text-align: left;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55);
+}
+
+.hayom-yom-link {
+  align-self: flex-start;
+  color: var(--accent);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.hayom-yom-link:hover {
+  text-decoration: underline;
+}
+
 .tehilim-announcement-badge {
   flex: 0 0 auto;
   padding: 8px 14px;
