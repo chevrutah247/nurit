@@ -111,6 +111,36 @@ export default function PartnersPage() {
           </span>
         </a>
 
+        {/* Get A Shidduch */}
+        <a
+          href="https://www.getashidduch.org/"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 12,
+            padding: '2rem', borderRadius: 16,
+            background: 'rgba(212,168,83,0.06)',
+            border: '1px solid rgba(212,168,83,0.2)',
+            textDecoration: 'none',
+            transition: 'all 0.2s',
+          }}
+        >
+          <span style={{ fontSize: 48 }}>💍</span>
+          <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.3rem', color: 'var(--gold, #d4a853)', textAlign: 'center' }}>
+            Get A Shidduch
+          </h3>
+          <p style={{ color: '#6a5a4a', fontSize: 14, textAlign: 'center' }}>
+            {isRu
+              ? 'Еврейский проект знакомств и шидухов'
+              : isHebrew
+                ? 'מיזם יהודי לשידוכים והיכרויות'
+                : 'A Jewish matchmaking and shidduch platform'}
+          </p>
+          <span style={{ color: '#8a7a5a', fontSize: 13, fontWeight: 600 }}>
+            getashidduch.org →
+          </span>
+        </a>
+
       </div>
     </div>
   );
