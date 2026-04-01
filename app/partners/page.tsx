@@ -125,7 +125,13 @@ export default function PartnersPage() {
             transition: 'all 0.2s',
           }}
         >
-          <span style={{ fontSize: 48 }}>💍</span>
+          <Image
+            src="/images/getashidduch-logo-horizontal.png"
+            alt="Get A Shidduch"
+            width={220}
+            height={88}
+            className="partners-brand-logo"
+          />
           <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.3rem', color: 'var(--gold, #d4a853)', textAlign: 'center' }}>
             Get A Shidduch
           </h3>
