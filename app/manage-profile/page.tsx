@@ -1,6 +1,6 @@
 'use client';
 
-import { FormEvent, useEffect, useMemo, useState } from 'react';
+import { FormEvent, Suspense, useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 
 import { useLanguage } from '@/components/language-provider';
@@ -18,7 +18,7 @@ type Profile = {
   hebrew_birthday?: string;
 };
 
-export default function ManageProfilePage() {
+function ManageProfileContent() {
   const { language } = useLanguage();
   const searchParams = useSearchParams();
   const token = searchParams.get('token') || '';
@@ -290,5 +290,13 @@ export default function ManageProfilePage() {
         </section>
       </div>
     </div>
+  );
+}
+
+export default function ManageProfilePage() {
+  return (
+    <Suspense fallback={<div className="subpage"><h1>Manage Profile</h1><p>Loading...</p></div>}>
+      <ManageProfileContent />
+    </Suspense>
   );
 }
