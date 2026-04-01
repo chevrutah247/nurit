@@ -61,21 +61,48 @@ function formatTime12(h: number, m: number, isRu: boolean): string {
   return `${h12}:${m.toString().padStart(2, '0')} ${period}`;
 }
 
-function getCountdown(lesson: Lesson): { isToday: boolean; isBeforeLesson: boolean; hours: number; minutes: number; seconds: number } {
+function getCountdown(lesson: Lesson): {
+  isToday: boolean;
+  isBeforeLesson: boolean;
+  isWithinStartedWindow: boolean;
+  hours: number;
+  minutes: number;
+  seconds: number;
+} {
   const now = new Date();
   if (now.getDay() !== lesson.dayOfWeek) {
-    return { isToday: false, isBeforeLesson: false, hours: 0, minutes: 0, seconds: 0 };
+    return {
+      isToday: false,
+      isBeforeLesson: false,
+      isWithinStartedWindow: false,
+      hours: 0,
+      minutes: 0,
+      seconds: 0,
+    };
   }
+
   const target = new Date(now);
   target.setHours(lesson.hour, lesson.minute, 0, 0);
   const diff = target.getTime() - now.getTime();
+
   if (diff <= 0) {
-    return { isToday: true, isBeforeLesson: false, hours: 0, minutes: 0, seconds: 0 };
+    const elapsedMs = now.getTime() - target.getTime();
+
+    return {
+      isToday: true,
+      isBeforeLesson: false,
+      isWithinStartedWindow: elapsedMs < 60 * 60 * 1000,
+      hours: 0,
+      minutes: 0,
+      seconds: 0,
+    };
   }
+
   const s = Math.floor(diff / 1000);
   return {
     isToday: true,
     isBeforeLesson: true,
+    isWithinStartedWindow: false,
     hours: Math.floor(s / 3600),
     minutes: Math.floor((s % 3600) / 60),
     seconds: s % 60,
@@ -162,7 +189,7 @@ export function Schedule() {
                 </div>
               )}
 
-              {cd.isToday && !cd.isBeforeLesson && (
+              {cd.isToday && cd.isWithinStartedWindow && (
                 <div style={{
                   marginTop: 12, padding: '8px 16px', borderRadius: 12,
                   background: 'rgba(34,197,94,0.15)', color: '#166534',
