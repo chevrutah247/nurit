@@ -1359,64 +1359,73 @@ html[dir='rtl'] .cta-inner {
   }
 }
 
-/* ═══ SEFIRAT HAOMER COUNTER ═══ */
+/* ═══ SEFIRAT HAOMER COUNTER — horizontal banner ═══ */
 .omer-section {
   padding: 0 16px;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 }
 
 .omer-card {
-  max-width: 480px;
+  max-width: 900px;
   margin: 0 auto;
   background: linear-gradient(135deg, #fdf8f0, #f5edd8);
   border: 2px solid var(--gold);
-  border-radius: 20px;
-  padding: 28px 24px;
-  text-align: center;
-  box-shadow: 0 4px 24px rgba(158, 124, 61, 0.15);
+  border-radius: 16px;
+  padding: 14px 24px;
+  box-shadow: 0 2px 16px rgba(158, 124, 61, 0.12);
 }
 
 .omer-header {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  margin-bottom: 16px;
+  gap: 8px;
+  margin-bottom: 10px;
 }
 
-.omer-icon {
-  font-size: 28px;
-}
+.omer-icon { font-size: 22px; }
 
 .omer-title {
-  font-size: 1.4rem !important;
+  font-size: 1.1rem !important;
   color: var(--gold);
   margin: 0;
-  letter-spacing: 0.02em;
+}
+
+.omer-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.omer-day-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  min-width: 70px;
 }
 
 .omer-day-number {
   position: relative;
   display: inline-block;
   font-family: var(--font-heading), Georgia, serif;
-  font-size: 4.5rem;
+  font-size: 3rem;
   font-weight: 700;
   color: var(--accent);
   line-height: 1;
-  margin-bottom: 8px;
 }
 
 .omer-new-badge {
   position: absolute;
-  top: -4px;
-  right: -44px;
-  font-size: 0.75rem;
+  top: -6px;
+  right: -38px;
+  font-size: 0.6rem;
   font-weight: 700;
   font-family: var(--font-body), sans-serif;
   color: #fff;
   background: var(--accent);
-  padding: 3px 8px;
-  border-radius: 8px;
+  padding: 2px 6px;
+  border-radius: 6px;
   letter-spacing: 0.5px;
   animation: omer-pulse 1.5s ease-in-out infinite;
 }
@@ -1426,66 +1435,82 @@ html[dir='rtl'] .cta-inner {
   50% { opacity: 0.6; transform: scale(1.1); }
 }
 
+.omer-weeks {
+  font-size: 0.75rem;
+  color: var(--text-soft);
+  margin: 4px 0 0;
+  white-space: nowrap;
+}
+
+.omer-divider {
+  width: 1px;
+  height: 48px;
+  background: var(--border);
+  flex-shrink: 0;
+}
+
+.omer-info-block {
+  flex: 1;
+  text-align: center;
+  min-width: 0;
+}
+
 .omer-hebrew-count {
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: var(--text);
-  margin: 0 0 6px;
+  margin: 0;
   font-weight: 500;
 }
 
-.omer-weeks {
-  font-size: 1rem;
-  color: var(--text-soft);
-  margin: 0 0 16px;
-}
-
-.omer-sefira {
-  background: var(--surface);
-  border-radius: 12px;
-  padding: 12px 16px;
-  margin-bottom: 20px;
-  border: 1px solid var(--border);
-}
-
 .omer-sefira-he {
-  font-size: 1.3rem;
+  font-size: 1.15rem;
   font-weight: 600;
   color: var(--accent);
-  margin: 0 0 4px;
+  margin: 2px 0 0;
 }
 
-.omer-sefira-local {
-  font-size: 0.95rem;
+.omer-sefira-en {
+  font-size: 0.85rem;
   color: var(--text-soft);
   margin: 0;
+  font-style: italic;
+}
+
+.omer-progress-block {
+  flex-shrink: 0;
+  width: 80px;
+  text-align: center;
 }
 
 .omer-progress-track {
-  height: 8px;
+  height: 6px;
   background: var(--border);
-  border-radius: 4px;
+  border-radius: 3px;
   overflow: hidden;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 
 .omer-progress-fill {
   height: 100%;
   background: linear-gradient(90deg, var(--gold), var(--accent));
-  border-radius: 4px;
+  border-radius: 3px;
   transition: width 0.5s ease;
 }
 
 .omer-progress-label {
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   color: var(--text-soft);
   margin: 0;
 }
 
-@media (max-width: 480px) {
-  .omer-day-number {
-    font-size: 3.5rem;
+@media (max-width: 600px) {
+  .omer-row {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
   }
-  .omer-card {
-    padding: 20px 16px;
-  }
+  .omer-divider { display: none; }
+  .omer-day-number { font-size: 2.5rem; }
+  .omer-progress-block { width: 100%; }
+  .omer-card { padding: 12px 16px; }
 }

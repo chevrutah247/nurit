@@ -202,35 +202,31 @@ export function OmerCounter() {
           </h3>
         </div>
 
-        {/* Day number - big */}
-        <div className="omer-day-number">
-          {omer.dayNumber}
-          {omer.isNewDay && (
-            <span className="omer-new-badge">NEW</span>
-          )}
+        {/* Horizontal layout */}
+        <div className="omer-row">
+          <div className="omer-day-block">
+            <div className="omer-day-number">
+              {omer.dayNumber}
+              {omer.isNewDay && <span className="omer-new-badge">NEW</span>}
+            </div>
+            {weeksText && <p className="omer-weeks">{weeksText}</p>}
+          </div>
+
+          <div className="omer-divider" />
+
+          <div className="omer-info-block">
+            <p className="omer-hebrew-count" dir="rtl">{`הַיּוֹם ${omer.hebrewCount} לָעוֹמֶר`}</p>
+            <p className="omer-sefira-he" dir="rtl">{sefiraHe}</p>
+            <p className="omer-sefira-en">{sefiraEn}</p>
+          </div>
+
+          <div className="omer-progress-block">
+            <div className="omer-progress-track">
+              <div className="omer-progress-fill" style={{ width: `${progress}%` }} />
+            </div>
+            <p className="omer-progress-label">{omer.dayNumber}/49</p>
+          </div>
         </div>
-
-        {/* Hebrew count */}
-        <p className="omer-hebrew-count" dir="rtl">{`הַיּוֹם ${omer.hebrewCount} לָעוֹמֶר`}</p>
-
-        {/* Weeks breakdown */}
-        {weeksText && (
-          <p className="omer-weeks">{weeksText}</p>
-        )}
-
-        {/* Sefira */}
-        <div className="omer-sefira">
-          <p className="omer-sefira-he" dir="rtl">{sefiraHe}</p>
-          <p className="omer-sefira-local">{isRu ? sefiraRu : sefiraEn}</p>
-        </div>
-
-        {/* Progress bar */}
-        <div className="omer-progress-track">
-          <div className="omer-progress-fill" style={{ width: `${progress}%` }} />
-        </div>
-        <p className="omer-progress-label">
-          {isRu ? `${omer.dayNumber} из 49 дней` : isHe ? `${omer.dayNumber} מתוך 49 ימים` : `${omer.dayNumber} of 49 days`}
-        </p>
       </div>
     </section>
   );
