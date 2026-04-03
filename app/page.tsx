@@ -13,6 +13,7 @@ import { Schedule } from '@/components/schedule';
 import { WeeklyVideos } from '@/components/weekly-videos';
 import { ShidduchArticles } from '@/components/shidduch-articles';
 import { DonationTicker } from '@/components/donation-ticker';
+import { OmerCounter } from '@/components/omer-counter';
 
 const monthNamesRu: Record<string, string> = {
   Nisan: 'Нисан',
@@ -144,6 +145,8 @@ export default function HomePage() {
           <p>{copy.home.welcomeText}</p>
         </div>
       </section>
+
+      <OmerCounter />
 
       <NossiBanner />
 
