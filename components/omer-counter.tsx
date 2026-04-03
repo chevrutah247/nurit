@@ -10,6 +10,7 @@ interface OmerData {
   days: number;
   sefira: string;
   totalDays: 49;
+  isNewDay: boolean; // true between sunset (9 PM) and midnight
 }
 
 // Hebrew number words for Omer count
@@ -70,7 +71,7 @@ const sefirotEn: string[][] = [
   ['Chesed of Malchut', 'Gevurah of Malchut', 'Tiferet of Malchut', 'Netzach of Malchut', 'Hod of Malchut', 'Yesod of Malchut', 'Malchut of Malchut'],
 ];
 
-function makeOmerData(day: number): OmerData {
+function makeOmerData(day: number, isNewDay = false): OmerData {
   const weeks = Math.floor((day - 1) / 7);
   const remainingDays = (day - 1) % 7;
   const weekIndex = Math.floor((day - 1) / 7);
@@ -82,6 +83,7 @@ function makeOmerData(day: number): OmerData {
     days: remainingDays,
     sefira: sefirot[weekIndex]?.[dayIndex] || '',
     totalDays: 49,
+    isNewDay,
   };
 }
 
@@ -137,14 +139,17 @@ async function getOmerDay(): Promise<OmerData | null> {
     // Jewish day starts at sunset, so after sunset we count the next day
     const currentHour = now.getHours();
     const currentMinute = now.getMinutes();
-    const afterSunset = currentHour > 19 || (currentHour === 19 && currentMinute >= 45);
+    // After 21:00 (9 PM), advance to next day's count
+    const afterSunset = currentHour >= 21;
+    // "NEW" badge shows between 9 PM and midnight
+    const isNewDay = afterSunset && currentHour < 24;
 
     // Day calculation:
     // On Pesach II date (baseDayFromMidnight=0): before sunset = day 1, after sunset = day 2
     const omerDay = baseDayFromMidnight + 1 + (afterSunset ? 1 : 0);
 
     if (omerDay >= 1 && omerDay <= 49) {
-      return makeOmerData(omerDay);
+      return makeOmerData(omerDay, isNewDay);
     }
 
     return null;
@@ -198,7 +203,12 @@ export function OmerCounter() {
         </div>
 
         {/* Day number - big */}
-        <div className="omer-day-number">{omer.dayNumber}</div>
+        <div className="omer-day-number">
+          {omer.dayNumber}
+          {omer.isNewDay && (
+            <span className="omer-new-badge">NEW</span>
+          )}
+        </div>
 
         {/* Hebrew count */}
         <p className="omer-hebrew-count" dir="rtl">{`הַיּוֹם ${omer.hebrewCount} לָעוֹמֶר`}</p>
