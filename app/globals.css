@@ -1369,7 +1369,7 @@ html[dir='rtl'] .cta-inner {
   background: var(--surface);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  padding: 24px 32px;
+  padding: 32px 24px;
   text-align: center;
 }
 
@@ -1378,52 +1378,73 @@ html[dir='rtl'] .cta-inner {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
 .omer-icon { font-size: 28px; }
 
 .omer-title {
-  font-size: 1.4rem !important;
+  font-size: 1.3rem !important;
   color: var(--gold);
   margin: 0;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  font-weight: 600;
 }
 
-.omer-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 40px;
-}
-
-.omer-day-block {
+.omer-content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex-shrink: 0;
+  gap: 16px;
+}
+
+/* Circular progress ring */
+.omer-circle {
+  position: relative;
+  width: 160px;
+  height: 160px;
+}
+
+.omer-ring {
+  width: 100%;
+  height: 100%;
+}
+
+.omer-circle-inner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .omer-day-number {
-  position: relative;
-  display: inline-block;
   font-family: var(--font-heading), Georgia, serif;
-  font-size: 4.5rem;
+  font-size: 4rem;
   font-weight: 700;
   color: var(--accent);
   line-height: 1;
 }
 
+.omer-day-total {
+  font-size: 1rem;
+  color: var(--text-soft);
+  margin-top: 2px;
+}
+
 .omer-new-badge {
   position: absolute;
-  top: -8px;
-  right: -42px;
+  top: 4px;
+  right: 4px;
   font-size: 0.7rem;
   font-weight: 700;
   font-family: var(--font-body), sans-serif;
   color: #fff;
   background: var(--accent);
-  padding: 3px 8px;
-  border-radius: 8px;
+  padding: 4px 10px;
+  border-radius: 10px;
   animation: omer-pulse 1.5s ease-in-out infinite;
 }
 
@@ -1432,27 +1453,10 @@ html[dir='rtl'] .cta-inner {
   50% { opacity: 0.6; transform: scale(1.1); }
 }
 
-.omer-weeks {
-  font-size: 0.95rem;
-  color: var(--text-soft);
-  margin: 6px 0 0;
-}
-
-.omer-divider {
-  width: 1px;
-  height: 60px;
-  background: var(--border);
-  flex-shrink: 0;
-}
-
-.omer-info-block {
-  text-align: center;
-}
-
 .omer-hebrew-count {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   color: var(--text);
-  margin: 0 0 4px;
+  margin: 0;
   font-weight: 500;
 }
 
@@ -1463,45 +1467,9 @@ html[dir='rtl'] .cta-inner {
   margin: 0;
 }
 
-.omer-sefira-en {
-  font-size: 1.05rem;
-  color: var(--text-soft);
-  margin: 4px 0 0;
-  font-style: italic;
-}
-
-.omer-progress-block {
-  flex-shrink: 0;
-  width: 120px;
-  text-align: center;
-}
-
-.omer-progress-track {
-  height: 6px;
-  background: rgba(0,0,0,0.06);
-  border-radius: 3px;
-  overflow: hidden;
-  margin-bottom: 6px;
-}
-
-.omer-progress-fill {
-  height: 100%;
-  background: linear-gradient(90deg, var(--gold), var(--accent));
-  border-radius: 3px;
-  transition: width 0.5s ease;
-}
-
-.omer-progress-label {
-  font-size: 0.9rem;
-  color: var(--text-soft);
-  margin: 0;
-}
-
 @media (max-width: 600px) {
-  .omer-card { padding: 20px 16px; }
-  .omer-row { gap: 20px; flex-wrap: wrap; }
-  .omer-divider { display: none; }
-  .omer-day-number { font-size: 3.5rem; }
+  .omer-card { padding: 24px 16px; }
+  .omer-circle { width: 130px; height: 130px; }
+  .omer-day-number { font-size: 3.2rem; }
   .omer-sefira-he { font-size: 1.3rem; }
-  .omer-progress-block { width: 100%; }
 }

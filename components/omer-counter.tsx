@@ -202,30 +202,39 @@ export function OmerCounter() {
           </h3>
         </div>
 
-        {/* Horizontal layout */}
-        <div className="omer-row">
-          <div className="omer-day-block">
-            <div className="omer-day-number">
-              {omer.dayNumber}
-              {omer.isNewDay && <span className="omer-new-badge">NEW</span>}
+        <div className="omer-content">
+          {/* Big day number with circular progress */}
+          <div className="omer-circle">
+            <svg className="omer-ring" viewBox="0 0 120 120">
+              <circle cx="60" cy="60" r="54" fill="none" stroke="rgba(0,0,0,0.06)" strokeWidth="6" />
+              <circle
+                cx="60" cy="60" r="54"
+                fill="none"
+                stroke="url(#omerGrad)"
+                strokeWidth="6"
+                strokeLinecap="round"
+                strokeDasharray={`${progress * 3.39} 339.292`}
+                transform="rotate(-90 60 60)"
+              />
+              <defs>
+                <linearGradient id="omerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="var(--gold)" />
+                  <stop offset="100%" stopColor="var(--accent)" />
+                </linearGradient>
+              </defs>
+            </svg>
+            <div className="omer-circle-inner">
+              <span className="omer-day-number">{omer.dayNumber}</span>
+              <span className="omer-day-total">
+                {isRu ? 'из 49' : isHe ? 'מתוך 49' : 'of 49'}
+              </span>
             </div>
-            {weeksText && <p className="omer-weeks">{weeksText}</p>}
+            {omer.isNewDay && <span className="omer-new-badge">NEW</span>}
           </div>
 
-          <div className="omer-divider" />
-
-          <div className="omer-info-block">
-            <p className="omer-hebrew-count" dir="rtl">{`הַיּוֹם ${omer.hebrewCount} לָעוֹמֶר`}</p>
-            <p className="omer-sefira-he" dir="rtl">{sefiraHe}</p>
-            <p className="omer-sefira-en">{sefiraEn}</p>
-          </div>
-
-          <div className="omer-progress-block">
-            <div className="omer-progress-track">
-              <div className="omer-progress-fill" style={{ width: `${progress}%` }} />
-            </div>
-            <p className="omer-progress-label">{omer.dayNumber}/49</p>
-          </div>
+          {/* Hebrew text */}
+          <p className="omer-hebrew-count" dir="rtl">{`הַיּוֹם ${omer.hebrewCount} לָעוֹמֶר`}</p>
+          <p className="omer-sefira-he" dir="rtl">{sefiraHe}</p>
         </div>
       </div>
     </section>
