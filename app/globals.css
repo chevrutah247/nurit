@@ -1361,8 +1361,9 @@ html[dir='rtl'] .cta-inner {
 
 /* ═══ SEFIRAT HAOMER — inline strip ═══ */
 .omer-section {
-  width: min(1200px, calc(100% - 32px));
+  width: min(1100px, calc(100% - 32px));
   margin: 0 auto 24px;
+  padding-top: 16px;
 }
 
 .omer-card {
