@@ -1376,6 +1376,15 @@ html[dir='rtl'] .cta-inner {
   display: none;
 }
 
+.omer-day-label {
+  text-align: center;
+  font-family: var(--font-heading), Georgia, serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin: 0 0 8px;
+}
+
 .omer-strip {
   display: flex;
   align-items: center;

@@ -202,9 +202,12 @@ export function OmerCounter() {
           </h3>
         </div>
 
+        <p className="omer-day-label">
+          {isRu ? `${omer.dayNumber}-й день счёта Омера` : isHe ? `יום ${omer.dayNumber} לספירת העומר` : `Day ${omer.dayNumber} of the Omer`}
+          {omer.isNewDay && <span className="omer-new-badge">NEW</span>}
+        </p>
         <div className="omer-strip">
           <span className="omer-day-number">{omer.dayNumber}<span className="omer-day-slash">/49</span></span>
-          {omer.isNewDay && <span className="omer-new-badge">NEW</span>}
           <span className="omer-sep">·</span>
           <span className="omer-hebrew" dir="rtl">{`הַיּוֹם ${omer.hebrewCount} לָעוֹמֶר`}</span>
           <span className="omer-sep">·</span>
