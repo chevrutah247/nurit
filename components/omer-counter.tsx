@@ -110,6 +110,8 @@ async function getOmerDay(): Promise<OmerData | null> {
   // Fallback: calculate from Pesach date via Hebcal
   try {
     const year = new Date().getFullYear();
+
+    // Get Pesach date and sunset times
     const res = await fetch(
       `https://www.hebcal.com/hebcal?v=1&cfg=json&maj=on&min=off&mod=off&nx=off&year=${year}&month=x&ss=off&mf=off&c=off&s=off`
     );
@@ -122,16 +124,24 @@ async function getOmerDay(): Promise<OmerData | null> {
 
     if (!pesach2) return null;
 
-    // Omer day 1 starts on the date of Pesach II (16 Nisan)
-    const omerStart = new Date(pesach2.date + 'T00:00:00');
-    const today = new Date();
-    const todayStart = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+    // Omer day 1 starts on the EVENING BEFORE Pesach II (i.e., night of 15 Nisan)
+    // In Jewish calendar, the day starts at sunset (~7:30-8:00 PM in NY spring)
+    const omerStartDate = new Date(pesach2.date + 'T00:00:00');
+    const now = new Date();
+    const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate());
 
-    const diffMs = todayStart.getTime() - omerStart.getTime();
-    const diffDays = Math.round(diffMs / (1000 * 60 * 60 * 24));
+    const diffMs = todayStart.getTime() - omerStartDate.getTime();
+    const baseDayFromMidnight = Math.round(diffMs / (1000 * 60 * 60 * 24));
 
-    // Day 1 = Pesach II date, Day 49 = day before Shavuot
-    const omerDay = diffDays + 1;
+    // After sunset (~19:45 EST / local), advance to next day's count
+    // Jewish day starts at sunset, so after sunset we count the next day
+    const currentHour = now.getHours();
+    const currentMinute = now.getMinutes();
+    const afterSunset = currentHour > 19 || (currentHour === 19 && currentMinute >= 45);
+
+    // Day calculation:
+    // On Pesach II date (baseDayFromMidnight=0): before sunset = day 1, after sunset = day 2
+    const omerDay = baseDayFromMidnight + 1 + (afterSunset ? 1 : 0);
 
     if (omerDay >= 1 && omerDay <= 49) {
       return makeOmerData(omerDay);
