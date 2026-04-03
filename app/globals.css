@@ -1361,7 +1361,7 @@ html[dir='rtl'] .cta-inner {
 
 /* ═══ SEFIRAT HAOMER COUNTER ═══ */
 .omer-section {
-  width: min(1200px, calc(100% - 32px));
+  width: min(480px, calc(100% - 32px));
   margin: 0 auto 32px;
 }
 
@@ -1369,7 +1369,7 @@ html[dir='rtl'] .cta-inner {
   background: var(--surface);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  padding: 32px 24px;
+  padding: 28px 24px;
   text-align: center;
 }
 
