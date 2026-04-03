@@ -70,38 +70,74 @@ const sefirotEn: string[][] = [
   ['Chesed of Malchut', 'Gevurah of Malchut', 'Tiferet of Malchut', 'Netzach of Malchut', 'Hod of Malchut', 'Yesod of Malchut', 'Malchut of Malchut'],
 ];
 
+function makeOmerData(day: number): OmerData {
+  const weeks = Math.floor((day - 1) / 7);
+  const remainingDays = (day - 1) % 7;
+  const weekIndex = Math.floor((day - 1) / 7);
+  const dayIndex = (day - 1) % 7;
+  return {
+    dayNumber: day,
+    hebrewCount: hebrewNumbers[day] || `${day}`,
+    weeks,
+    days: remainingDays,
+    sefira: sefirot[weekIndex]?.[dayIndex] || '',
+    totalDays: 49,
+  };
+}
+
 async function getOmerDay(): Promise<OmerData | null> {
+  // Try Hebcal API first
   try {
     const res = await fetch(
       'https://www.hebcal.com/hebcal?v=1&cfg=json&maj=off&min=off&mod=off&nx=off&year=now&month=x&ss=off&mf=off&c=off&s=off&omer=on'
     );
+    if (res.ok) {
+      const data = await res.json();
+      const today = new Date();
+      const todayStr = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+
+      const omerItem = (data.items || []).find(
+        (item: { category?: string; date?: string; omer?: number }) =>
+          item.category === 'omer' && item.date === todayStr
+      );
+
+      if (omerItem?.omer) {
+        return makeOmerData(omerItem.omer);
+      }
+    }
+  } catch { /* fallback below */ }
+
+  // Fallback: calculate from Pesach date via Hebcal
+  try {
+    const year = new Date().getFullYear();
+    const res = await fetch(
+      `https://www.hebcal.com/hebcal?v=1&cfg=json&maj=on&min=off&mod=off&nx=off&year=${year}&month=x&ss=off&mf=off&c=off&s=off`
+    );
     if (!res.ok) return null;
 
     const data = await res.json();
-    const today = new Date();
-    const todayStr = today.toISOString().split('T')[0];
-
-    const omerItem = (data.items || []).find(
-      (item: { category?: string; date?: string; omer?: number }) =>
-        item.category === 'omer' && item.date === todayStr
+    const pesach2 = (data.items || []).find(
+      (item: { title?: string }) => item.title === 'Pesach II'
     );
 
-    if (!omerItem || !omerItem.omer) return null;
+    if (!pesach2) return null;
 
-    const day = omerItem.omer;
-    const weeks = Math.floor((day - 1) / 7);
-    const remainingDays = (day - 1) % 7;
-    const weekIndex = Math.floor((day - 1) / 7);
-    const dayIndex = (day - 1) % 7;
+    // Omer day 1 starts on the date of Pesach II (16 Nisan)
+    const omerStart = new Date(pesach2.date + 'T00:00:00');
+    const today = new Date();
+    const todayStart = new Date(today.getFullYear(), today.getMonth(), today.getDate());
 
-    return {
-      dayNumber: day,
-      hebrewCount: hebrewNumbers[day] || `${day}`,
-      weeks,
-      days: remainingDays,
-      sefira: sefirot[weekIndex]?.[dayIndex] || '',
-      totalDays: 49,
-    };
+    const diffMs = todayStart.getTime() - omerStart.getTime();
+    const diffDays = Math.round(diffMs / (1000 * 60 * 60 * 24));
+
+    // Day 1 = Pesach II date, Day 49 = day before Shavuot
+    const omerDay = diffDays + 1;
+
+    if (omerDay >= 1 && omerDay <= 49) {
+      return makeOmerData(omerDay);
+    }
+
+    return null;
   } catch {
     return null;
   }
