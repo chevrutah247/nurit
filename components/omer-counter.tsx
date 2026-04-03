@@ -202,39 +202,13 @@ export function OmerCounter() {
           </h3>
         </div>
 
-        <div className="omer-content">
-          {/* Big day number with circular progress */}
-          <div className="omer-circle">
-            <svg className="omer-ring" viewBox="0 0 120 120">
-              <circle cx="60" cy="60" r="54" fill="none" stroke="rgba(0,0,0,0.06)" strokeWidth="6" />
-              <circle
-                cx="60" cy="60" r="54"
-                fill="none"
-                stroke="url(#omerGrad)"
-                strokeWidth="6"
-                strokeLinecap="round"
-                strokeDasharray={`${progress * 3.39} 339.292`}
-                transform="rotate(-90 60 60)"
-              />
-              <defs>
-                <linearGradient id="omerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="var(--gold)" />
-                  <stop offset="100%" stopColor="var(--accent)" />
-                </linearGradient>
-              </defs>
-            </svg>
-            <div className="omer-circle-inner">
-              <span className="omer-day-number">{omer.dayNumber}</span>
-              <span className="omer-day-total">
-                {isRu ? 'из 49' : isHe ? 'מתוך 49' : 'of 49'}
-              </span>
-            </div>
-            {omer.isNewDay && <span className="omer-new-badge">NEW</span>}
-          </div>
-
-          {/* Hebrew text */}
-          <p className="omer-hebrew-count" dir="rtl">{`הַיּוֹם ${omer.hebrewCount} לָעוֹמֶר`}</p>
-          <p className="omer-sefira-he" dir="rtl">{sefiraHe}</p>
+        <div className="omer-strip">
+          <span className="omer-day-number">{omer.dayNumber}<span className="omer-day-slash">/49</span></span>
+          {omer.isNewDay && <span className="omer-new-badge">NEW</span>}
+          <span className="omer-sep">·</span>
+          <span className="omer-hebrew" dir="rtl">{`הַיּוֹם ${omer.hebrewCount} לָעוֹמֶר`}</span>
+          <span className="omer-sep">·</span>
+          <span className="omer-sefira" dir="rtl">{sefiraHe}</span>
         </div>
       </div>
     </section>
